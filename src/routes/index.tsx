@@ -7,9 +7,12 @@ import destSafari from "@/assets/dest-safari.jpg";
 import destDubai from "@/assets/dest-dubai.jpg";
 import {
   Plane, Globe2, Building2, FileCheck2, Church, Gem, GraduationCap, Compass,
-  ShieldCheck, BadgeDollarSign, Headphones, Sparkles, Lock, Zap, ArrowRight, MessageCircle, Check, Star,
+  ShieldCheck, BadgeDollarSign, Headphones, Sparkles, Lock, Zap, ArrowRight, MessageCircle, Check, Star, CreditCard,
 } from "lucide-react";
 import { QuoteDialog } from "@/components/site/QuoteDialog";
+import { PayDepositDialog } from "@/components/site/PayDepositDialog";
+import { ExploreDialog, type ExploreActivity } from "@/components/site/ExploreDialog";
+import { depositAmount } from "@/lib/payfast";
 import { SITE } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
@@ -55,6 +58,39 @@ const services = [
   { icon: GraduationCap, title: "Student Travel", desc: "Group tours & study abroad logistics." },
   { icon: Compass, title: "Safari Experiences", desc: "Iconic African wildlife adventures." },
 ];
+
+const packageActivities: Record<string, ExploreActivity[]> = {
+  Dubai: [
+    { title: "Burj Khalifa Sky Deck", desc: "Sunset views from the world's tallest building, level 124 & 125.", image: destDubai },
+    { title: "Desert Safari & Dune Bashing", desc: "4x4 dune adventure, camel rides and a Bedouin BBQ under the stars.", image: heroDubai },
+    { title: "Dubai Marina Yacht Cruise", desc: "Glide past the Palm & Atlantis on a private luxury catamaran.", image: destMauritius },
+    { title: "Gold & Spice Souks", desc: "Old Dubai abra ride and guided tour of the historic souks.", image: destZanzibar },
+  ],
+  Mauritius: [
+    { title: "Île aux Cerfs Catamaran", desc: "Full-day island hop with snorkeling, BBQ lunch and waterfall stop.", image: destMauritius },
+    { title: "Black River Gorges", desc: "Hike rainforests, viewpoints and the seven coloured earths of Chamarel.", image: destSafari },
+    { title: "Dolphin Swim at Tamarin", desc: "Early-morning boat trip to swim with wild spinner dolphins.", image: destZanzibar },
+    { title: "Le Morne Beach Day", desc: "UNESCO-listed peninsula — kite surfing, snorkeling & sunset cocktails.", image: destCapetown },
+  ],
+  Zanzibar: [
+    { title: "Stone Town Heritage Walk", desc: "Spice market, House of Wonders and Freddie Mercury's birthplace.", image: destZanzibar },
+    { title: "Nakupenda Sandbank", desc: "Boat trip to a pristine sandbar with fresh seafood lunch.", image: destMauritius },
+    { title: "Spice Farm Tour", desc: "Taste cloves, vanilla and nutmeg straight from the source.", image: destSafari },
+    { title: "Mnemba Atoll Snorkel", desc: "Reef teeming with turtles, dolphins and tropical fish.", image: destCapetown },
+  ],
+  "Cape Town": [
+    { title: "Table Mountain Cableway", desc: "Rotating cable car to the iconic flat-topped summit.", image: destCapetown },
+    { title: "Cape Point & Boulders Beach", desc: "Peninsula drive with African penguins at Boulders.", image: destSafari },
+    { title: "Stellenbosch Winelands", desc: "Tastings at boutique estates with Cape Dutch architecture.", image: destMauritius },
+    { title: "V&A Waterfront", desc: "Harbour dining, Two Oceans Aquarium and Robben Island ferry.", image: destZanzibar },
+  ],
+  "SA Safari": [
+    { title: "Big Five Game Drives", desc: "Dawn & dusk drives with expert rangers in private Kruger concessions.", image: destSafari },
+    { title: "Bush Walk Experience", desc: "Tracked walk with armed guide — focus on tracks, plants and birding.", image: destCapetown },
+    { title: "Boma Dinner Under the Stars", desc: "Open-fire feast with traditional music in the heart of the bush.", image: destZanzibar },
+    { title: "Panorama Route", desc: "Blyde River Canyon, God's Window and Bourke's Luck Potholes.", image: destMauritius },
+  ],
+};
 
 const packages = [
   { name: "Dubai", price: "R9,999", img: destDubai, includes: ["Return flights", "4 nights 4★ hotel", "Desert safari", "Burj Khalifa visit"] },
@@ -138,6 +174,64 @@ function Home() {
         </div>
       </section>
 
+      {/* PACKAGES */}
+      <section className="py-24 bg-secondary">
+        <div className="container-x">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+            <div>
+              <span className="text-xs uppercase tracking-[0.3em] text-[var(--gold)]">Popular Packages</span>
+              <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold">Ready-to-book journeys</h2>
+              <p className="mt-3 text-sm text-muted-foreground">Secure your spot with a 10% deposit via PayFast — South Africa's trusted payment gateway.</p>
+            </div>
+            <Link to="/contact" className="text-sm font-semibold text-[var(--navy-deep)] underline underline-offset-4">Need something custom? Talk to us →</Link>
+          </div>
+          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {packages.map((p) => {
+              const deposit = depositAmount(p.price);
+              const activities = packageActivities[p.name] ?? [];
+              return (
+                <article key={p.name} className="overflow-hidden rounded-2xl bg-card shadow-card flex flex-col">
+                  <div className="relative aspect-[5/3] overflow-hidden">
+                    <img src={p.img} alt={`${p.name} travel package`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-110" />
+                    <div className="absolute top-4 right-4 rounded-full bg-[var(--navy-deep)]/85 backdrop-blur px-3 py-1 text-xs font-semibold text-white">Starting {p.price}</div>
+                  </div>
+                  <div className="flex flex-1 flex-col p-6">
+                    <h3 className="font-display text-2xl font-semibold">{p.name} Package</h3>
+                    <p className="mt-1 text-sm text-muted-foreground">Per person sharing — handcrafted by our specialists.</p>
+                    <ul className="mt-4 space-y-2 text-sm">
+                      {p.includes.map((i) => (
+                        <li key={i} className="flex gap-2"><Check className="h-4 w-4 text-[var(--gold)] mt-0.5 shrink-0" />{i}</li>
+                      ))}
+                    </ul>
+                    <div className="mt-6 flex flex-col sm:flex-row gap-2">
+                      <PayDepositDialog
+                        packageName={p.name}
+                        amount={deposit}
+                        totalLabel={p.price}
+                        trigger={
+                          <button className="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-[var(--navy-deep)] px-4 py-3 text-sm font-semibold text-white hover:bg-[var(--navy)]">
+                            <CreditCard className="h-4 w-4" /> Pay Deposit
+                          </button>
+                        }
+                      />
+                      <ExploreDialog
+                        packageName={p.name}
+                        activities={activities}
+                        trigger={
+                          <button className="flex-1 inline-flex items-center justify-center gap-2 rounded-full border border-[var(--navy-deep)] bg-transparent px-4 py-3 text-sm font-semibold text-[var(--navy-deep)] hover:bg-[var(--navy-deep)] hover:text-white transition-colors">
+                            <Compass className="h-4 w-4" /> Explore
+                          </button>
+                        }
+                      />
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* SERVICES */}
       <section className="py-24 bg-[var(--navy-deep)] text-white">
         <div className="container-x">
@@ -160,42 +254,6 @@ function Home() {
         </div>
       </section>
 
-      {/* PACKAGES */}
-      <section className="py-24 bg-secondary">
-        <div className="container-x">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-            <div>
-              <span className="text-xs uppercase tracking-[0.3em] text-[var(--gold)]">Popular Packages</span>
-              <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold">Ready-to-book journeys</h2>
-            </div>
-            <Link to="/contact" className="text-sm font-semibold text-[var(--navy-deep)] underline underline-offset-4">Need something custom? Talk to us →</Link>
-          </div>
-          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {packages.map((p) => (
-              <article key={p.name} className="overflow-hidden rounded-2xl bg-card shadow-card flex flex-col">
-                <div className="relative aspect-[5/3] overflow-hidden">
-                  <img src={p.img} alt={p.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-110" />
-                  <div className="absolute top-4 right-4 rounded-full bg-[var(--navy-deep)]/85 backdrop-blur px-3 py-1 text-xs font-semibold text-white">Starting {p.price}</div>
-                </div>
-                <div className="flex flex-1 flex-col p-6">
-                  <h3 className="font-display text-2xl font-semibold">{p.name} Package</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">Per person sharing — handcrafted by our specialists.</p>
-                  <ul className="mt-4 space-y-2 text-sm">
-                    {p.includes.map((i) => (
-                      <li key={i} className="flex gap-2"><Check className="h-4 w-4 text-[var(--gold)] mt-0.5 shrink-0" />{i}</li>
-                    ))}
-                  </ul>
-                  <QuoteDialog destination={p.name} trigger={
-                    <button className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-[var(--navy-deep)] px-5 py-3 text-sm font-semibold text-white hover:bg-[var(--navy)]">
-                      Request Quote <ArrowRight className="h-4 w-4" />
-                    </button>
-                  } />
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* WHY US */}
       <section className="py-24 bg-background">
