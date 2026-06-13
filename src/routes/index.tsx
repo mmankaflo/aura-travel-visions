@@ -7,9 +7,12 @@ import destSafari from "@/assets/dest-safari.jpg";
 import destDubai from "@/assets/dest-dubai.jpg";
 import {
   Plane, Globe2, Building2, FileCheck2, Church, Gem, GraduationCap, Compass,
-  ShieldCheck, BadgeDollarSign, Headphones, Sparkles, Lock, Zap, ArrowRight, MessageCircle, Check, Star,
+  ShieldCheck, BadgeDollarSign, Headphones, Sparkles, Lock, Zap, ArrowRight, MessageCircle, Check, Star, CreditCard,
 } from "lucide-react";
 import { QuoteDialog } from "@/components/site/QuoteDialog";
+import { PayDepositDialog } from "@/components/site/PayDepositDialog";
+import { ExploreDialog, type ExploreActivity } from "@/components/site/ExploreDialog";
+import { depositAmount } from "@/lib/payfast";
 import { SITE } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
@@ -55,6 +58,39 @@ const services = [
   { icon: GraduationCap, title: "Student Travel", desc: "Group tours & study abroad logistics." },
   { icon: Compass, title: "Safari Experiences", desc: "Iconic African wildlife adventures." },
 ];
+
+const packageActivities: Record<string, ExploreActivity[]> = {
+  Dubai: [
+    { title: "Burj Khalifa Sky Deck", desc: "Sunset views from the world's tallest building, level 124 & 125.", image: destDubai },
+    { title: "Desert Safari & Dune Bashing", desc: "4x4 dune adventure, camel rides and a Bedouin BBQ under the stars.", image: heroDubai },
+    { title: "Dubai Marina Yacht Cruise", desc: "Glide past the Palm & Atlantis on a private luxury catamaran.", image: destMauritius },
+    { title: "Gold & Spice Souks", desc: "Old Dubai abra ride and guided tour of the historic souks.", image: destZanzibar },
+  ],
+  Mauritius: [
+    { title: "Île aux Cerfs Catamaran", desc: "Full-day island hop with snorkeling, BBQ lunch and waterfall stop.", image: destMauritius },
+    { title: "Black River Gorges", desc: "Hike rainforests, viewpoints and the seven coloured earths of Chamarel.", image: destSafari },
+    { title: "Dolphin Swim at Tamarin", desc: "Early-morning boat trip to swim with wild spinner dolphins.", image: destZanzibar },
+    { title: "Le Morne Beach Day", desc: "UNESCO-listed peninsula — kite surfing, snorkeling & sunset cocktails.", image: destCapetown },
+  ],
+  Zanzibar: [
+    { title: "Stone Town Heritage Walk", desc: "Spice market, House of Wonders and Freddie Mercury's birthplace.", image: destZanzibar },
+    { title: "Nakupenda Sandbank", desc: "Boat trip to a pristine sandbar with fresh seafood lunch.", image: destMauritius },
+    { title: "Spice Farm Tour", desc: "Taste cloves, vanilla and nutmeg straight from the source.", image: destSafari },
+    { title: "Mnemba Atoll Snorkel", desc: "Reef teeming with turtles, dolphins and tropical fish.", image: destCapetown },
+  ],
+  "Cape Town": [
+    { title: "Table Mountain Cableway", desc: "Rotating cable car to the iconic flat-topped summit.", image: destCapetown },
+    { title: "Cape Point & Boulders Beach", desc: "Peninsula drive with African penguins at Boulders.", image: destSafari },
+    { title: "Stellenbosch Winelands", desc: "Tastings at boutique estates with Cape Dutch architecture.", image: destMauritius },
+    { title: "V&A Waterfront", desc: "Harbour dining, Two Oceans Aquarium and Robben Island ferry.", image: destZanzibar },
+  ],
+  "SA Safari": [
+    { title: "Big Five Game Drives", desc: "Dawn & dusk drives with expert rangers in private Kruger concessions.", image: destSafari },
+    { title: "Bush Walk Experience", desc: "Tracked walk with armed guide — focus on tracks, plants and birding.", image: destCapetown },
+    { title: "Boma Dinner Under the Stars", desc: "Open-fire feast with traditional music in the heart of the bush.", image: destZanzibar },
+    { title: "Panorama Route", desc: "Blyde River Canyon, God's Window and Bourke's Luck Potholes.", image: destMauritius },
+  ],
+};
 
 const packages = [
   { name: "Dubai", price: "R9,999", img: destDubai, includes: ["Return flights", "4 nights 4★ hotel", "Desert safari", "Burj Khalifa visit"] },
