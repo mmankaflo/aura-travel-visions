@@ -174,6 +174,64 @@ function Home() {
         </div>
       </section>
 
+      {/* PACKAGES */}
+      <section className="py-24 bg-secondary">
+        <div className="container-x">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+            <div>
+              <span className="text-xs uppercase tracking-[0.3em] text-[var(--gold)]">Popular Packages</span>
+              <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold">Ready-to-book journeys</h2>
+              <p className="mt-3 text-sm text-muted-foreground">Secure your spot with a 10% deposit via PayFast — South Africa's trusted payment gateway.</p>
+            </div>
+            <Link to="/contact" className="text-sm font-semibold text-[var(--navy-deep)] underline underline-offset-4">Need something custom? Talk to us →</Link>
+          </div>
+          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {packages.map((p) => {
+              const deposit = depositAmount(p.price);
+              const activities = packageActivities[p.name] ?? [];
+              return (
+                <article key={p.name} className="overflow-hidden rounded-2xl bg-card shadow-card flex flex-col">
+                  <div className="relative aspect-[5/3] overflow-hidden">
+                    <img src={p.img} alt={`${p.name} travel package`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-110" />
+                    <div className="absolute top-4 right-4 rounded-full bg-[var(--navy-deep)]/85 backdrop-blur px-3 py-1 text-xs font-semibold text-white">Starting {p.price}</div>
+                  </div>
+                  <div className="flex flex-1 flex-col p-6">
+                    <h3 className="font-display text-2xl font-semibold">{p.name} Package</h3>
+                    <p className="mt-1 text-sm text-muted-foreground">Per person sharing — handcrafted by our specialists.</p>
+                    <ul className="mt-4 space-y-2 text-sm">
+                      {p.includes.map((i) => (
+                        <li key={i} className="flex gap-2"><Check className="h-4 w-4 text-[var(--gold)] mt-0.5 shrink-0" />{i}</li>
+                      ))}
+                    </ul>
+                    <div className="mt-6 flex flex-col sm:flex-row gap-2">
+                      <PayDepositDialog
+                        packageName={p.name}
+                        amount={deposit}
+                        totalLabel={p.price}
+                        trigger={
+                          <button className="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-[var(--navy-deep)] px-4 py-3 text-sm font-semibold text-white hover:bg-[var(--navy)]">
+                            <CreditCard className="h-4 w-4" /> Pay Deposit
+                          </button>
+                        }
+                      />
+                      <ExploreDialog
+                        packageName={p.name}
+                        activities={activities}
+                        trigger={
+                          <button className="flex-1 inline-flex items-center justify-center gap-2 rounded-full border border-[var(--navy-deep)] bg-transparent px-4 py-3 text-sm font-semibold text-[var(--navy-deep)] hover:bg-[var(--navy-deep)] hover:text-white transition-colors">
+                            <Compass className="h-4 w-4" /> Explore
+                          </button>
+                        }
+                      />
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* SERVICES */}
       <section className="py-24 bg-[var(--navy-deep)] text-white">
         <div className="container-x">
@@ -196,42 +254,6 @@ function Home() {
         </div>
       </section>
 
-      {/* PACKAGES */}
-      <section className="py-24 bg-secondary">
-        <div className="container-x">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-            <div>
-              <span className="text-xs uppercase tracking-[0.3em] text-[var(--gold)]">Popular Packages</span>
-              <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold">Ready-to-book journeys</h2>
-            </div>
-            <Link to="/contact" className="text-sm font-semibold text-[var(--navy-deep)] underline underline-offset-4">Need something custom? Talk to us →</Link>
-          </div>
-          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {packages.map((p) => (
-              <article key={p.name} className="overflow-hidden rounded-2xl bg-card shadow-card flex flex-col">
-                <div className="relative aspect-[5/3] overflow-hidden">
-                  <img src={p.img} alt={p.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-110" />
-                  <div className="absolute top-4 right-4 rounded-full bg-[var(--navy-deep)]/85 backdrop-blur px-3 py-1 text-xs font-semibold text-white">Starting {p.price}</div>
-                </div>
-                <div className="flex flex-1 flex-col p-6">
-                  <h3 className="font-display text-2xl font-semibold">{p.name} Package</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">Per person sharing — handcrafted by our specialists.</p>
-                  <ul className="mt-4 space-y-2 text-sm">
-                    {p.includes.map((i) => (
-                      <li key={i} className="flex gap-2"><Check className="h-4 w-4 text-[var(--gold)] mt-0.5 shrink-0" />{i}</li>
-                    ))}
-                  </ul>
-                  <QuoteDialog destination={p.name} trigger={
-                    <button className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-[var(--navy-deep)] px-5 py-3 text-sm font-semibold text-white hover:bg-[var(--navy)]">
-                      Request Quote <ArrowRight className="h-4 w-4" />
-                    </button>
-                  } />
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* WHY US */}
       <section className="py-24 bg-background">
