@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { NAV, SITE } from "@/lib/site";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/logo.png";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -22,12 +23,19 @@ export function SiteHeader() {
       )}
     >
       <div className="container-x flex h-16 items-center justify-between gap-4 md:h-20">
-        <Link to="/" className="flex items-center gap-2 min-w-0">
-          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gradient-to-br from-[var(--gold)] to-[var(--gold-soft)] font-display text-base font-bold text-[var(--navy-deep)]">
-            A
-          </span>
-          <span className={cn("font-display text-lg font-semibold tracking-tight truncate", scrolled ? "text-foreground" : "text-white drop-shadow")}>
-            Aura <span className="text-gradient-gold">Travel</span>
+        <Link to="/" className="flex items-center gap-2.5 min-w-0">
+          <img
+            src={logo}
+            alt="Aura Travel & Tours logo"
+            width={40}
+            height={40}
+            className="h-9 w-9 md:h-10 md:w-10 shrink-0 object-contain drop-shadow"
+          />
+          <span className={cn(
+            "font-display text-sm sm:text-base md:text-lg font-semibold tracking-tight truncate leading-tight",
+            scrolled ? "text-foreground" : "text-white drop-shadow"
+          )}>
+            Aura Travel <span className="text-gradient-gold">&amp; Tours</span>
           </span>
         </Link>
 

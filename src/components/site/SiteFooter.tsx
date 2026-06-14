@@ -3,6 +3,7 @@ import { Mail, Phone, MapPin, Instagram, Facebook, Send } from "lucide-react";
 import { NAV, SITE } from "@/lib/site";
 import { useState } from "react";
 import { toast } from "sonner";
+import logo from "@/assets/logo.png";
 
 export function SiteFooter() {
   const [email, setEmail] = useState("");
@@ -10,9 +11,9 @@ export function SiteFooter() {
     <footer className="bg-[var(--navy-deep)] text-white/80">
       <div className="container-x py-16 grid gap-12 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <Link to="/" className="flex items-center gap-2">
-            <span className="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-[var(--gold)] to-[var(--gold-soft)] font-display font-bold text-[var(--navy-deep)]">A</span>
-            <span className="font-display text-lg font-semibold text-white">Aura Travel</span>
+          <Link to="/" className="flex items-center gap-2.5">
+            <img src={logo} alt="Aura Travel & Tours" width={40} height={40} className="h-10 w-10 object-contain" />
+            <span className="font-display text-lg font-semibold text-white">Aura Travel &amp; Tours</span>
           </Link>
           <p className="mt-4 text-sm leading-relaxed">
             A trusted South African travel partner crafting luxury, corporate and pilgrimage journeys worldwide.
