@@ -48,7 +48,7 @@ function Visa() {
                 <li key={i} className="flex gap-2"><Check className="h-4 w-4 text-[var(--gold)] mt-0.5" />{i}</li>
               ))}
             </ul>
-            <QuoteDialog trigger={
+            <VisaEnquiryDialog trigger={
               <button className="mt-8 inline-flex items-center gap-2 rounded-full bg-[var(--navy-deep)] px-7 py-3.5 text-sm font-semibold text-white">Start your visa application</button>
             } />
           </div>
