@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
-import { QuoteDialog } from "@/components/site/QuoteDialog";
+import { VisaEnquiryDialog } from "@/components/site/VisaEnquiryDialog";
 import visa from "@/assets/visa.jpg";
 import { FileCheck2, MessagesSquare, FolderCheck, ShieldPlus, Check } from "lucide-react";
 
