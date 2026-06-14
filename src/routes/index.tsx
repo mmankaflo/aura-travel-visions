@@ -9,7 +9,7 @@ import {
   Plane, Globe2, Building2, FileCheck2, Church, Gem, GraduationCap, Compass,
   ShieldCheck, BadgeDollarSign, Headphones, Sparkles, Lock, Zap, ArrowRight, MessageCircle, Check, Star, CreditCard,
 } from "lucide-react";
-import { QuoteDialog } from "@/components/site/QuoteDialog";
+import { EnquiryDialog } from "@/components/site/EnquiryDialog";
 import { PayDepositDialog } from "@/components/site/PayDepositDialog";
 import { ExploreDialog, type ExploreActivity } from "@/components/site/ExploreDialog";
 import { depositAmount } from "@/lib/payfast";
@@ -126,7 +126,7 @@ function Home() {
             {SITE.tagline}. Affordable local and international travel packages, expertly tailored to your story.
           </p>
           <div className="mt-8 flex flex-wrap gap-3 animate-float-up">
-            <QuoteDialog trigger={
+            <EnquiryDialog trigger={
               <button className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--gold)] to-[var(--gold-soft)] px-7 py-3.5 text-sm font-semibold text-[var(--navy-deep)] shadow-lg hover:opacity-90">
                 Request a Quote <ArrowRight className="h-4 w-4" />
               </button>
@@ -162,7 +162,7 @@ function Home() {
                 <div className="absolute inset-x-0 bottom-0 p-6 text-white">
                   <h3 className="font-display text-2xl font-semibold">{d.name}</h3>
                   <p className="mt-1 text-sm text-white/80">{d.blurb}</p>
-                  <QuoteDialog destination={d.name} trigger={
+                  <EnquiryDialog destination={d.name} trigger={
                     <button className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--gold)] hover:gap-2.5 transition-all">
                       Plan this trip <ArrowRight className="h-4 w-4" />
                     </button>
@@ -262,7 +262,7 @@ function Home() {
             <span className="text-xs uppercase tracking-[0.3em] text-[var(--gold)]">Why Choose Aura</span>
             <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold">A travel partner you can <span className="text-gradient-gold">trust</span>.</h2>
             <p className="mt-5 text-muted-foreground max-w-lg">From your first enquiry to your safe return home, our specialists obsess over the details so you can simply enjoy the journey.</p>
-            <QuoteDialog trigger={
+            <EnquiryDialog trigger={
               <button className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--gold)] to-[var(--gold-soft)] px-7 py-3.5 text-sm font-semibold text-[var(--navy-deep)]">
                 Start Planning <ArrowRight className="h-4 w-4" />
               </button>
@@ -288,7 +288,7 @@ function Home() {
           <h2 className="font-display text-4xl md:text-6xl font-semibold max-w-3xl mx-auto">Your next great escape starts here.</h2>
           <p className="mt-5 max-w-xl mx-auto text-white/80">Speak to a real travel specialist today — no bots, no pressure.</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <QuoteDialog trigger={
+            <EnquiryDialog trigger={
               <button className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--gold)] to-[var(--gold-soft)] px-7 py-3.5 text-sm font-semibold text-[var(--navy-deep)]">
                 Request a Quote
               </button>

@@ -3,8 +3,8 @@ export const SITE = {
   tagline: "Explore the World with Confidence",
   phone: "+27 11 234 5678",
   phoneHref: "tel:+27112345678",
-  whatsapp: "+27 82 123 4567",
-  whatsappHref: "https://wa.me/27821234567?text=Hi%20Aura%20Travel%2C%20I%27d%20like%20a%20quote",
+  whatsapp: "+27 67 810 0789",
+  whatsappHref: "https://wa.me/27678100789?text=Hi%20Aura%20Travel%2C%20I%27d%20like%20a%20quote",
   email: "hello@auratravel.co.za",
   emailHref: "mailto:hello@auratravel.co.za",
   address: "Sandton City, Johannesburg, South Africa",
@@ -14,6 +14,7 @@ export const SITE = {
 export const NAV = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
+  { to: "/plan-trip", label: "Plan a Trip" },
   { to: "/corporate", label: "Corporate" },
   { to: "/visa", label: "Visa" },
   { to: "/religious", label: "Religious Tours" },
