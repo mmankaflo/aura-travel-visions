@@ -9,7 +9,7 @@ import {
   Plane, Globe2, Building2, FileCheck2, Church, Gem, GraduationCap, Compass,
   ShieldCheck, BadgeDollarSign, Headphones, Sparkles, Lock, Zap, ArrowRight, MessageCircle, Check, Star, CreditCard,
 } from "lucide-react";
-import { QuoteDialog } from "@/components/site/QuoteDialog";
+import { EnquiryDialog } from "@/components/site/EnquiryDialog";
 import { PayDepositDialog } from "@/components/site/PayDepositDialog";
 import { ExploreDialog, type ExploreActivity } from "@/components/site/ExploreDialog";
 import { depositAmount } from "@/lib/payfast";
