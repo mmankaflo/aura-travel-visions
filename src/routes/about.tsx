@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
-import { QuoteDialog } from "@/components/site/QuoteDialog";
+import { EnquiryDialog } from "@/components/site/EnquiryDialog";
 import heroDubai from "@/assets/hero-dubai.jpg";
 import destCapetown from "@/assets/dest-capetown.jpg";
 import { Award, Users, Globe, Heart } from "lucide-react";
@@ -67,7 +67,7 @@ function About() {
         <div className="container-x text-center max-w-2xl mx-auto">
           <h2 className="font-display text-3xl md:text-4xl font-semibold">Let's plan your next chapter.</h2>
           <p className="mt-4 text-muted-foreground">Tell us where you'd love to go — we'll handle everything else.</p>
-          <QuoteDialog trigger={
+          <EnquiryDialog title="Request a Quote" trigger={
             <button className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--gold)] to-[var(--gold-soft)] px-7 py-3.5 text-sm font-semibold text-[var(--navy-deep)]">Request a Quote</button>
           } />
         </div>

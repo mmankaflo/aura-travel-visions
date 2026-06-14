@@ -16,7 +16,7 @@ export function SiteFooter() {
             <span className="font-display text-lg font-semibold text-white">Aura Travel &amp; Tours</span>
           </Link>
           <p className="mt-4 text-sm leading-relaxed">
-            A trusted South African travel partner crafting luxury, corporate and pilgrimage journeys worldwide.
+            A trusted South African travel partner crafting luxury, corporate and spiritual journey journeys worldwide.
           </p>
           <div className="mt-5 flex gap-3">
             <a href="#" aria-label="Instagram" className="grid h-9 w-9 place-items-center rounded-full border border-white/15 hover:border-[var(--gold)] hover:text-[var(--gold)]"><Instagram className="h-4 w-4" /></a>

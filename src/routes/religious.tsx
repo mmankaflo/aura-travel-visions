@@ -1,14 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
-import { QuoteDialog } from "@/components/site/QuoteDialog";
+import { EnquiryDialog } from "@/components/site/EnquiryDialog";
 import religious from "@/assets/religious.jpg";
 import { Church, Users, MapPin, Check } from "lucide-react";
 
 export const Route = createFileRoute("/religious")({
   head: () => ({
     meta: [
-      { title: "Religious Tours & Holy Land Pilgrimages | Aura Travel & Tours" },
-      { name: "description", content: "Christian Holy Land tours and group pilgrimage packages from South Africa with experienced spiritual travel coordinators." },
+      { title: "Religious Tours & Holy Land Spiritual Journeys | Aura Travel & Tours" },
+      { name: "description", content: "Christian Holy Land tours and group spiritual journey packages from South Africa with experienced faith-travel coordinators." },
       { property: "og:title", content: "Religious Tours — Aura Travel & Tours" },
       { property: "og:url", content: "/religious" },
     ],
@@ -20,13 +20,13 @@ export const Route = createFileRoute("/religious")({
 const tours = [
   { icon: Church, t: "Christian Tours", d: "Journeys to Rome, the Vatican and significant Christian sites across Europe." },
   { icon: MapPin, t: "Holy Land Tours", d: "Walk where it all began — Jerusalem, Bethlehem, Galilee and Nazareth." },
-  { icon: Users, t: "Group Pilgrimages", d: "Custom packages for church groups, congregations and ministries." },
+  { icon: Users, t: "Group Spiritual Journeys", d: "Custom packages for church groups, congregations and ministries." },
 ];
 
 function Religious() {
   return (
     <>
-      <PageHero title="Pilgrimages with purpose." subtitle="Spiritual journeys curated with care for individuals and church groups." image={religious} />
+      <PageHero title="Spiritual journeys with purpose." subtitle="Faith-led travel curated with care for individuals and church groups." image={religious} />
       <section className="py-24">
         <div className="container-x">
           <div className="grid md:grid-cols-3 gap-6">
@@ -48,8 +48,8 @@ function Religious() {
                   <li key={i} className="flex gap-3"><Check className="h-5 w-5 text-[var(--gold)] mt-0.5 shrink-0" /><span>{i}</span></li>
                 ))}
               </ul>
-              <QuoteDialog trigger={
-                <button className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--gold)] to-[var(--gold-soft)] px-7 py-3.5 text-sm font-semibold text-[var(--navy-deep)]">Plan a Group Pilgrimage</button>
+              <EnquiryDialog title="Plan a Group Spiritual Journey" trigger={
+                <button className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--gold)] to-[var(--gold-soft)] px-7 py-3.5 text-sm font-semibold text-[var(--navy-deep)]">Plan a Group Spiritual Journey</button>
               } />
             </div>
           </div>
