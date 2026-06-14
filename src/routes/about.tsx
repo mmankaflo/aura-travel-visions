@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
-import { QuoteDialog } from "@/components/site/QuoteDialog";
+import { EnquiryDialog } from "@/components/site/EnquiryDialog";
 import heroDubai from "@/assets/hero-dubai.jpg";
 import destCapetown from "@/assets/dest-capetown.jpg";
 import { Award, Users, Globe, Heart } from "lucide-react";
