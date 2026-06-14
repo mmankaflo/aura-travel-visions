@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as VisaRouteImport } from './routes/visa'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ReligiousRouteImport } from './routes/religious'
+import { Route as PlanTripRouteImport } from './routes/plan-trip'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as CorporateRouteImport } from './routes/corporate'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -31,6 +32,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ReligiousRoute = ReligiousRouteImport.update({
   id: '/religious',
   path: '/religious',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlanTripRoute = PlanTripRouteImport.update({
+  id: '/plan-trip',
+  path: '/plan-trip',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
@@ -65,6 +71,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/corporate': typeof CorporateRoute
   '/gallery': typeof GalleryRoute
+  '/plan-trip': typeof PlanTripRoute
   '/religious': typeof ReligiousRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/visa': typeof VisaRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/corporate': typeof CorporateRoute
   '/gallery': typeof GalleryRoute
+  '/plan-trip': typeof PlanTripRoute
   '/religious': typeof ReligiousRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/visa': typeof VisaRoute
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/corporate': typeof CorporateRoute
   '/gallery': typeof GalleryRoute
+  '/plan-trip': typeof PlanTripRoute
   '/religious': typeof ReligiousRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/visa': typeof VisaRoute
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/corporate'
     | '/gallery'
+    | '/plan-trip'
     | '/religious'
     | '/sitemap.xml'
     | '/visa'
@@ -108,6 +118,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/corporate'
     | '/gallery'
+    | '/plan-trip'
     | '/religious'
     | '/sitemap.xml'
     | '/visa'
@@ -118,6 +129,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/corporate'
     | '/gallery'
+    | '/plan-trip'
     | '/religious'
     | '/sitemap.xml'
     | '/visa'
@@ -129,6 +141,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   CorporateRoute: typeof CorporateRoute
   GalleryRoute: typeof GalleryRoute
+  PlanTripRoute: typeof PlanTripRoute
   ReligiousRoute: typeof ReligiousRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   VisaRoute: typeof VisaRoute
@@ -155,6 +168,13 @@ declare module '@tanstack/react-router' {
       path: '/religious'
       fullPath: '/religious'
       preLoaderRoute: typeof ReligiousRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plan-trip': {
+      id: '/plan-trip'
+      path: '/plan-trip'
+      fullPath: '/plan-trip'
+      preLoaderRoute: typeof PlanTripRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -201,6 +221,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   CorporateRoute: CorporateRoute,
   GalleryRoute: GalleryRoute,
+  PlanTripRoute: PlanTripRoute,
   ReligiousRoute: ReligiousRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   VisaRoute: VisaRoute,

@@ -14,6 +14,7 @@ export const SITE = {
 export const NAV = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
+  { to: "/plan-trip", label: "Plan a Trip" },
   { to: "/corporate", label: "Corporate" },
   { to: "/visa", label: "Visa" },
   { to: "/religious", label: "Religious Tours" },
