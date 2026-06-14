@@ -53,7 +53,7 @@ const services = [
   { icon: Globe2, title: "Holiday Packages", desc: "Local & international tailored escapes." },
   { icon: Building2, title: "Corporate Travel", desc: "End-to-end business travel management." },
   { icon: FileCheck2, title: "Visa Assistance", desc: "Fast, expert visa application support." },
-  { icon: Church, title: "Religious Tours", desc: "Holy Land & pilgrimage group packages." },
+  { icon: Church, title: "Religious Tours", desc: "Holy Land & spiritual journey group packages." },
   { icon: Gem, title: "Luxury Travel", desc: "Curated 5★ experiences worldwide." },
   { icon: GraduationCap, title: "Student Travel", desc: "Group tours & study abroad logistics." },
   { icon: Compass, title: "Safari Experiences", desc: "Iconic African wildlife adventures." },
@@ -238,7 +238,7 @@ function Home() {
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="text-xs uppercase tracking-[0.3em] text-[var(--gold)]">Our Services</span>
             <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold">Everything for the modern traveller</h2>
-            <p className="mt-4 text-white/70">From leisure to corporate, pilgrimage to safari — one trusted partner.</p>
+            <p className="mt-4 text-white/70">From leisure to corporate, spiritual journey to safari — one trusted partner.</p>
           </div>
           <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {services.map(({ icon: Icon, title, desc }) => (
