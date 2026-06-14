@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
-import { QuoteDialog } from "@/components/site/QuoteDialog";
+import { EnquiryDialog } from "@/components/site/EnquiryDialog";
 import corporate from "@/assets/corporate.jpg";
 import { Plane, Hotel, ClipboardList, Users2, TrendingDown, Check } from "lucide-react";
 
