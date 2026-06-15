@@ -19,8 +19,8 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Aura Travel & Tours | Luxury Holiday Packages South Africa" },
-      { name: "description", content: "Affordable luxury holiday packages from South Africa — Dubai, Mauritius, Zanzibar, Cape Town safaris, corporate travel, visa assistance and religious tours." },
-      { property: "og:title", content: "Aura Travel & Tours — Explore the World with Confidence" },
+      { name: "description", content: "Affordable luxury holiday packages from South Africa, Dubai, Mauritius, Zanzibar, Cape Town safaris, corporate travel, visa assistance and religious tours." },
+      { property: "og:title", content: "Aura Travel & Tours, Explore the World with Confidence" },
       { property: "og:description", content: "Tailored local & international travel packages from Johannesburg." },
       { property: "og:url", content: "/" },
     ],
@@ -70,7 +70,7 @@ const packageActivities: Record<string, ExploreActivity[]> = {
     { title: "Île aux Cerfs Catamaran", desc: "Full-day island hop with snorkeling, BBQ lunch and waterfall stop.", image: destMauritius },
     { title: "Black River Gorges", desc: "Hike rainforests, viewpoints and the seven coloured earths of Chamarel.", image: destSafari },
     { title: "Dolphin Swim at Tamarin", desc: "Early-morning boat trip to swim with wild spinner dolphins.", image: destZanzibar },
-    { title: "Le Morne Beach Day", desc: "UNESCO-listed peninsula — kite surfing, snorkeling & sunset cocktails.", image: destCapetown },
+    { title: "Le Morne Beach Day", desc: "UNESCO-listed peninsula, kite surfing, snorkeling & sunset cocktails.", image: destCapetown },
   ],
   Zanzibar: [
     { title: "Stone Town Heritage Walk", desc: "Spice market, House of Wonders and Freddie Mercury's birthplace.", image: destZanzibar },
@@ -86,7 +86,7 @@ const packageActivities: Record<string, ExploreActivity[]> = {
   ],
   "SA Safari": [
     { title: "Big Five Game Drives", desc: "Dawn & dusk drives with expert rangers in private Kruger concessions.", image: destSafari },
-    { title: "Bush Walk Experience", desc: "Tracked walk with armed guide — focus on tracks, plants and birding.", image: destCapetown },
+    { title: "Bush Walk Experience", desc: "Tracked walk with armed guide, focus on tracks, plants and birding.", image: destCapetown },
     { title: "Boma Dinner Under the Stars", desc: "Open-fire feast with traditional music in the heart of the bush.", image: destZanzibar },
     { title: "Panorama Route", desc: "Blyde River Canyon, God's Window and Bourke's Luck Potholes.", image: destMauritius },
   ],
@@ -151,7 +151,7 @@ function Home() {
               <span className="text-xs uppercase tracking-[0.3em] text-[var(--gold)]">Featured Destinations</span>
               <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold">Where will Aura take you?</h2>
             </div>
-            <p className="max-w-md text-muted-foreground">Hand-picked escapes loved by South African travellers — from beach hideaways to iconic city breaks.</p>
+            <p className="max-w-md text-muted-foreground">Hand-picked escapes loved by South African travellers, from beach hideaways to iconic city breaks.</p>
           </div>
           <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {destinations.map((d, i) => (
@@ -181,7 +181,7 @@ function Home() {
             <div>
               <span className="text-xs uppercase tracking-[0.3em] text-[var(--gold)]">Popular Packages</span>
               <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold">Ready-to-book journeys</h2>
-              <p className="mt-3 text-sm text-muted-foreground">Secure your spot with a 10% deposit via PayFast — South Africa's trusted payment gateway.</p>
+              <p className="mt-3 text-sm text-muted-foreground">Secure your spot with a 10% deposit via PayFast, South Africa's trusted payment gateway.</p>
             </div>
             <Link to="/contact" className="text-sm font-semibold text-[var(--navy-deep)] underline underline-offset-4">Need something custom? Talk to us →</Link>
           </div>
@@ -197,7 +197,7 @@ function Home() {
                   </div>
                   <div className="flex flex-1 flex-col p-6">
                     <h3 className="font-display text-2xl font-semibold">{p.name} Package</h3>
-                    <p className="mt-1 text-sm text-muted-foreground">Per person sharing — handcrafted by our specialists.</p>
+                    <p className="mt-1 text-sm text-muted-foreground">Per person sharing, handcrafted by our specialists.</p>
                     <ul className="mt-4 space-y-2 text-sm">
                       {p.includes.map((i) => (
                         <li key={i} className="flex gap-2"><Check className="h-4 w-4 text-[var(--gold)] mt-0.5 shrink-0" />{i}</li>
@@ -238,7 +238,7 @@ function Home() {
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="text-xs uppercase tracking-[0.3em] text-[var(--gold)]">Our Services</span>
             <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold">Everything for the modern traveller</h2>
-            <p className="mt-4 text-white/70">From leisure to corporate, spiritual journey to safari — one trusted partner.</p>
+            <p className="mt-4 text-white/70">From leisure to corporate, spiritual journey to safari, one trusted partner.</p>
           </div>
           <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {services.map(({ icon: Icon, title, desc }) => (
@@ -286,7 +286,7 @@ function Home() {
         <div className="absolute inset-0 bg-[var(--navy-deep)]/80" />
         <div className="relative container-x text-center text-white">
           <h2 className="font-display text-4xl md:text-6xl font-semibold max-w-3xl mx-auto">Your next great escape starts here.</h2>
-          <p className="mt-5 max-w-xl mx-auto text-white/80">Speak to a real travel specialist today — no bots, no pressure.</p>
+          <p className="mt-5 max-w-xl mx-auto text-white/80">Speak to a real travel specialist today, no bots, no pressure.</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <EnquiryDialog trigger={
               <button className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--gold)] to-[var(--gold-soft)] px-7 py-3.5 text-sm font-semibold text-[var(--navy-deep)]">

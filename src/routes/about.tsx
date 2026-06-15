@@ -36,9 +36,9 @@ function About() {
             <span className="text-xs uppercase tracking-[0.3em] text-[var(--gold)]">Our Story</span>
             <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold">A trusted South African travel partner.</h2>
             <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
-              <p>Aura Travel & Tours was founded in Johannesburg with a single mission — to make exceptional travel accessible to every South African. From honeymooners and families to corporate teams and religious groups, we curate experiences that reflect each client's unique story.</p>
+              <p>Aura Travel & Tours was founded in Johannesburg with a single mission, to make exceptional travel accessible to every South African. From honeymooners and families to corporate teams and religious groups, we curate experiences that reflect each client's unique story.</p>
               <p>Our specialists are seasoned travellers themselves. We've walked Dubai's souks, sailed Zanzibar's coast, hiked Table Mountain at sunrise and tracked the Big Five at dawn. That first-hand knowledge becomes your unfair advantage on every trip we plan.</p>
-              <p>Whether you need a quick weekend getaway, a complex multi-country itinerary or full corporate travel management — we handle the details so you can focus on the experience.</p>
+              <p>Whether you need a quick weekend getaway, a complex multi-country itinerary or full corporate travel management, we handle the details so you can focus on the experience.</p>
             </div>
           </div>
           <div className="relative">
@@ -66,7 +66,7 @@ function About() {
       <section className="py-24">
         <div className="container-x text-center max-w-2xl mx-auto">
           <h2 className="font-display text-3xl md:text-4xl font-semibold">Let's plan your next chapter.</h2>
-          <p className="mt-4 text-muted-foreground">Tell us where you'd love to go — we'll handle everything else.</p>
+          <p className="mt-4 text-muted-foreground">Tell us where you'd love to go, we'll handle everything else.</p>
           <EnquiryDialog title="Request a Quote" trigger={
             <button className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--gold)] to-[var(--gold-soft)] px-7 py-3.5 text-sm font-semibold text-[var(--navy-deep)]">Request a Quote</button>
           } />

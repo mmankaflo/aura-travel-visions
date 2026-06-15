@@ -19,7 +19,7 @@ export function EnquiryDialog({
         <DialogHeader>
           <DialogTitle className="font-display text-2xl md:text-3xl">{title}</DialogTitle>
           <DialogDescription>
-            Tell us about your dream trip — our travel specialists will respond within 24 hours.
+            Tell us about your dream trip, our travel specialists will respond within 24 hours.
           </DialogDescription>
         </DialogHeader>
         <EnquiryForm

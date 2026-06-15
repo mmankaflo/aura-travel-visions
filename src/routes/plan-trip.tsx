@@ -8,8 +8,8 @@ export const Route = createFileRoute("/plan-trip")({
   head: () => ({
     meta: [
       { title: "Plan Your Trip | Aura Travel & Tours" },
-      { name: "description", content: "Tell us about your dream holiday — adults, kids, dates, departure city, destination, budget and more. We'll craft a tailored quote within 24 hours." },
-      { property: "og:title", content: "Plan Your Trip — Aura Travel & Tours" },
+      { name: "description", content: "Tell us about your dream holiday, adults, kids, dates, departure city, destination, budget and more. We'll craft a tailored quote within 24 hours." },
+      { property: "og:title", content: "Plan Your Trip, Aura Travel & Tours" },
       { property: "og:url", content: "/plan-trip" },
     ],
     links: [{ rel: "canonical", href: "/plan-trip" }],

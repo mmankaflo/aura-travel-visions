@@ -64,7 +64,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "Premium South African travel agency offering Dubai, Mauritius, Zanzibar, Cape Town packages, safaris, corporate travel, visa assistance and religious tours." },
       { name: "author", content: "Aura Travel & Tours" },
       { property: "og:title", content: "Aura Travel & Tours" },
-      { property: "og:description", content: "Explore the world with confidence — luxury travel from Johannesburg." },
+      { property: "og:description", content: "Explore the world with confidence, luxury travel from Johannesburg." },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Aura Travel & Tours" },
       { name: "twitter:card", content: "summary_large_image" },

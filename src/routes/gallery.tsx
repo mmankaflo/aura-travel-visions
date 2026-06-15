@@ -14,7 +14,7 @@ export const Route = createFileRoute("/gallery")({
     meta: [
       { title: "Travel Gallery | Aura Travel & Tours" },
       { name: "description", content: "Visual journeys through Dubai, Mauritius, Zanzibar, Cape Town safaris and luxury resorts curated by Aura Travel & Tours." },
-      { property: "og:title", content: "Travel Gallery — Aura Travel & Tours" },
+      { property: "og:title", content: "Travel Gallery, Aura Travel & Tours" },
       { property: "og:url", content: "/gallery" },
     ],
     links: [{ rel: "canonical", href: "/gallery" }],

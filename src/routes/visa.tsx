@@ -8,8 +8,8 @@ export const Route = createFileRoute("/visa")({
   head: () => ({
     meta: [
       { title: "Visa Assistance Services South Africa | Aura Travel & Tours" },
-      { name: "description", content: "Fast, expert visa assistance from South Africa — consultation, application support, documentation guidance and travel insurance." },
-      { property: "og:title", content: "Visa Assistance — Aura Travel & Tours" },
+      { name: "description", content: "Fast, expert visa assistance from South Africa, consultation, application support, documentation guidance and travel insurance." },
+      { property: "og:title", content: "Visa Assistance, Aura Travel & Tours" },
       { property: "og:url", content: "/visa" },
     ],
     links: [{ rel: "canonical", href: "/visa" }],
@@ -42,7 +42,7 @@ function Visa() {
           <div>
             <span className="text-xs uppercase tracking-[0.3em] text-[var(--gold)]">Visa Services</span>
             <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold">No more guesswork.</h2>
-            <p className="mt-5 text-muted-foreground">Visa rules change constantly. Our specialists stay current on requirements for the UAE, Schengen, UK, US, China and dozens more — saving you time, stress and costly mistakes.</p>
+            <p className="mt-5 text-muted-foreground">Visa rules change constantly. Our specialists stay current on requirements for the UAE, Schengen, UK, US, China and dozens more, saving you time, stress and costly mistakes.</p>
             <ul className="mt-6 space-y-2.5 text-sm">
               {["Schengen visa", "UAE visa", "UK visitor visa", "US B1/B2 visa", "Schengen multiple entry", "Group visa coordination"].map((i) => (
                 <li key={i} className="flex gap-2"><Check className="h-4 w-4 text-[var(--gold)] mt-0.5" />{i}</li>

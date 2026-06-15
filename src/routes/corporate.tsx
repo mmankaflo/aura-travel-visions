@@ -8,8 +8,8 @@ export const Route = createFileRoute("/corporate")({
   head: () => ({
     meta: [
       { title: "Corporate Travel Management South Africa | Aura Travel & Tours" },
-      { name: "description", content: "End-to-end corporate travel management for South African businesses — flights, hotels, policy management, group travel and expense optimisation." },
-      { property: "og:title", content: "Corporate Travel Management — Aura Travel & Tours" },
+      { name: "description", content: "End-to-end corporate travel management for South African businesses, flights, hotels, policy management, group travel and expense optimisation." },
+      { property: "og:title", content: "Corporate Travel Management, Aura Travel & Tours" },
       { property: "og:url", content: "/corporate" },
     ],
     links: [{ rel: "canonical", href: "/corporate" }],
@@ -34,7 +34,7 @@ function Corporate() {
           <div>
             <span className="text-xs uppercase tracking-[0.3em] text-[var(--gold)]">What we manage</span>
             <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold">A dedicated travel desk for your business.</h2>
-            <p className="mt-5 text-muted-foreground">From single executive flights to multi-country team rollouts, Aura's corporate desk handles every detail with discretion and speed — so your people focus on the meeting, not the logistics.</p>
+            <p className="mt-5 text-muted-foreground">From single executive flights to multi-country team rollouts, Aura's corporate desk handles every detail with discretion and speed, so your people focus on the meeting, not the logistics.</p>
             <ul className="mt-8 space-y-3 text-sm">
               {["Dedicated account manager", "24/7 emergency support", "Online booking portal", "Monthly expense reports", "Loyalty programme integration"].map((i) => (
                 <li key={i} className="flex gap-3"><Check className="h-5 w-5 text-[var(--gold)] mt-0.5 shrink-0" /><span>{i}</span></li>

@@ -41,7 +41,7 @@ export function EnquiryForm({
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    toast.success("Enquiry submitted — our specialists will be in touch within 24 hours.");
+    toast.success("Enquiry submitted, our specialists will be in touch within 24 hours.");
     (e.target as HTMLFormElement).reset();
     setDate(undefined);
     setContactMethod("");
@@ -153,7 +153,7 @@ export function EnquiryForm({
 
       {/* Opt-ins */}
       <section className="grid gap-3 rounded-xl border border-border bg-secondary/40 p-4">
-        <p className="text-xs uppercase tracking-wider text-muted-foreground">Optional — stay in the loop</p>
+        <p className="text-xs uppercase tracking-wider text-muted-foreground">Optional, stay in the loop</p>
         <label className="flex items-start gap-3 cursor-pointer">
           <Checkbox
             id="ef-wa"
