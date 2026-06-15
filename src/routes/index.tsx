@@ -98,6 +98,30 @@ const packageActivities: Record<string, ExploreActivity[]> = {
     { title: "Boma Dinner Under the Stars", desc: "Open-fire feast with traditional music in the heart of the bush.", image: destZanzibar },
     { title: "Panorama Route", desc: "Blyde River Canyon, God's Window and Bourke's Luck Potholes.", image: destMauritius },
   ],
+  "United Kingdom": [
+    { title: "London Icons Tour", desc: "Big Ben, Westminster, Buckingham Palace and a Thames river cruise.", image: destUk },
+    { title: "Tower of London & Crown Jewels", desc: "Guided tour through 1,000 years of royal history.", image: destUk },
+    { title: "Cotswolds Countryside Day", desc: "Honey-stone villages, pubs and English afternoon tea.", image: destCanada },
+    { title: "Edinburgh Add-on", desc: "Castle, Royal Mile and Highlands optional extension.", image: destSafari },
+  ],
+  Canada: [
+    { title: "Banff & Lake Louise", desc: "Turquoise glacial lakes, gondolas and Rocky Mountain hikes.", image: destCanada },
+    { title: "Niagara Falls Experience", desc: "Hornblower boat cruise into the mist of the falls.", image: destUk },
+    { title: "Vancouver City & Capilano", desc: "Stanley Park, Granville Island and the suspension bridge.", image: destSafari },
+    { title: "Whale Watching Victoria", desc: "Orcas, humpbacks and bald eagles off Vancouver Island.", image: destMauritius },
+  ],
+  "United States": [
+    { title: "New York City Pass", desc: "Statue of Liberty, Empire State, Times Square and Broadway.", image: destUsa },
+    { title: "Las Vegas & Grand Canyon", desc: "Strip nightlife plus a helicopter tour over the canyon.", image: destDubai },
+    { title: "Orlando Theme Parks", desc: "Walt Disney World and Universal Studios family days.", image: destUsa },
+    { title: "California Coast Drive", desc: "LA to San Francisco along the Pacific Coast Highway.", image: destCapetown },
+  ],
+  Australia: [
+    { title: "Sydney Harbour Cruise", desc: "Opera House, Harbour Bridge climb and Bondi Beach.", image: destAustralia },
+    { title: "Great Barrier Reef", desc: "Snorkel or dive the world's largest coral reef from Cairns.", image: destMauritius },
+    { title: "Uluru Sunset Experience", desc: "Sacred red monolith with Sounds of Silence dinner.", image: destSafari },
+    { title: "Melbourne & Great Ocean Road", desc: "Coffee culture, laneways and the Twelve Apostles drive.", image: destAustralia },
+  ],
 };
 
 const packages = [
@@ -106,6 +130,10 @@ const packages = [
   { name: "Zanzibar", price: "R10,999", img: destZanzibar, includes: ["Return flights", "5 nights beach resort", "Spice tour", "Snorkeling trip"] },
   { name: "Cape Town", price: "R4,999", img: destCapetown, includes: ["Domestic flights", "3 nights hotel", "Table Mountain", "Winelands tour"] },
   { name: "SA Safari", price: "R6,999", img: destSafari, includes: ["Lodge stay 3 nights", "Game drives", "All meals", "Park fees"] },
+  { name: "United Kingdom", price: "R24,999", img: destUk, includes: ["Return flights", "6 nights London 4★", "Hop-on city tour", "Tower of London entry"] },
+  { name: "Canada", price: "R28,999", img: destCanada, includes: ["Return flights", "7 nights Banff & Vancouver", "Lake Louise tour", "Niagara day trip"] },
+  { name: "United States", price: "R26,999", img: destUsa, includes: ["Return flights", "6 nights NYC 4★", "City sightseeing pass", "Statue of Liberty ferry"] },
+  { name: "Australia", price: "R32,999", img: destAustralia, includes: ["Return flights", "7 nights Sydney & Cairns", "Harbour cruise", "Great Barrier Reef day"] },
 ];
 
 const whyUs = [
