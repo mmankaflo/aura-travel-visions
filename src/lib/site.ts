@@ -5,8 +5,8 @@ export const SITE = {
   phoneHref: "tel:+27112345678",
   whatsapp: "+27 67 810 0789",
   whatsappHref: "https://wa.me/27678100789?text=Hi%20Aura%20Travel%2C%20I%27d%20like%20a%20quote",
-  email: "hello@auratravel.co.za",
-  emailHref: "mailto:hello@auratravel.co.za",
+  email: "info@AuraTravelandTours.onmicrosoft.com",
+  emailHref: "mailto:info@AuraTravelandTours.onmicrosoft.com",
   address: "Sandton City, Johannesburg, South Africa",
   hours: "Mon–Fri 08:00–18:00 · Sat 09:00–14:00",
 };

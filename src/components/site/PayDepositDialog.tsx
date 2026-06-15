@@ -33,7 +33,7 @@ export function PayDepositDialog({
             const fd = new FormData(e.currentTarget);
             submitPayFast({
               amount,
-              item_name: `${packageName} Package — Deposit`,
+              item_name: `${packageName} Package, Deposit`,
               item_description: `Aura Travel & Tours deposit for ${packageName}`,
               name_first: String(fd.get("name") || ""),
               email_address: String(fd.get("email") || ""),
@@ -46,7 +46,7 @@ export function PayDepositDialog({
           <div className="rounded-xl border border-border bg-secondary/50 p-4 text-sm flex items-start gap-3">
             <ShieldCheck className="h-5 w-5 text-[var(--gold)] mt-0.5 shrink-0" />
             <p className="text-muted-foreground">
-              You'll be redirected to <span className="font-semibold text-foreground">PayFast</span> — South Africa's trusted payment gateway — to complete payment securely.
+              You'll be redirected to <span className="font-semibold text-foreground">PayFast</span>, South Africa's trusted payment gateway, to complete payment securely.
             </p>
           </div>
           <button

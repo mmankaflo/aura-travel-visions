@@ -13,10 +13,10 @@ export function QuoteDialog({ trigger, destination }: { trigger: ReactNode; dest
       <DialogContent className="sm:max-w-lg">
         <DialogHeader>
           <DialogTitle className="font-display text-2xl">Request a Quote</DialogTitle>
-          <DialogDescription>Tell us about your trip — we'll respond within 24 hours.</DialogDescription>
+          <DialogDescription>Tell us about your trip, we'll respond within 24 hours.</DialogDescription>
         </DialogHeader>
         <form
-          onSubmit={(e) => { e.preventDefault(); toast.success("Quote request received — we'll be in touch shortly."); setOpen(false); }}
+          onSubmit={(e) => { e.preventDefault(); toast.success("Quote request received, we'll be in touch shortly."); setOpen(false); }}
           className="grid gap-4"
         >
           <div className="grid gap-2"><Label htmlFor="q-name">Full name</Label><Input id="q-name" required /></div>

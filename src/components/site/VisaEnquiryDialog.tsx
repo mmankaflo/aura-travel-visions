@@ -40,7 +40,7 @@ export function VisaEnquiryDialog({ trigger }: { trigger: ReactNode }) {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    toast.success("Visa application started — a visa specialist will contact you within 24 hours.");
+    toast.success("Visa application started, a visa specialist will contact you within 24 hours.");
     (e.target as HTMLFormElement).reset();
     reset();
     setOpen(false);
@@ -53,7 +53,7 @@ export function VisaEnquiryDialog({ trigger }: { trigger: ReactNode }) {
         <DialogHeader>
           <DialogTitle className="font-display text-2xl md:text-3xl">Start Your Visa Application</DialogTitle>
           <DialogDescription>
-            Share your travel details — our visa specialists will guide you through every step.
+            Share your travel details, our visa specialists will guide you through every step.
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="grid gap-7">
@@ -145,7 +145,7 @@ export function VisaEnquiryDialog({ trigger }: { trigger: ReactNode }) {
               <Checkbox checked={insurance} onCheckedChange={(c) => setInsurance(c === true)} className="mt-0.5" />
               <span className="text-sm">
                 <span className="font-medium">Include travel insurance quote</span>
-                <span className="block text-muted-foreground text-xs">Required for most visas — we'll send options.</span>
+                <span className="block text-muted-foreground text-xs">Required for most visas, we'll send options.</span>
               </span>
             </label>
           </section>

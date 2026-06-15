@@ -9,7 +9,7 @@ export const Route = createFileRoute("/religious")({
     meta: [
       { title: "Religious Tours & Holy Land Spiritual Journeys | Aura Travel & Tours" },
       { name: "description", content: "Christian Holy Land tours and group spiritual journey packages from South Africa with experienced faith-travel coordinators." },
-      { property: "og:title", content: "Religious Tours — Aura Travel & Tours" },
+      { property: "og:title", content: "Religious Tours, Aura Travel & Tours" },
       { property: "og:url", content: "/religious" },
     ],
     links: [{ rel: "canonical", href: "/religious" }],
@@ -19,7 +19,7 @@ export const Route = createFileRoute("/religious")({
 
 const tours = [
   { icon: Church, t: "Christian Tours", d: "Journeys to Rome, the Vatican and significant Christian sites across Europe." },
-  { icon: MapPin, t: "Holy Land Tours", d: "Walk where it all began — Jerusalem, Bethlehem, Galilee and Nazareth." },
+  { icon: MapPin, t: "Holy Land Tours", d: "Walk where it all began, Jerusalem, Bethlehem, Galilee and Nazareth." },
   { icon: Users, t: "Group Spiritual Journeys", d: "Custom packages for church groups, congregations and ministries." },
 ];
 

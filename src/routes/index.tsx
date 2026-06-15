@@ -5,6 +5,10 @@ import destZanzibar from "@/assets/dest-zanzibar.jpg";
 import destCapetown from "@/assets/dest-capetown.jpg";
 import destSafari from "@/assets/dest-safari.jpg";
 import destDubai from "@/assets/dest-dubai.jpg";
+import destUk from "@/assets/dest-uk.jpg";
+import destCanada from "@/assets/dest-canada.jpg";
+import destUsa from "@/assets/dest-usa.jpg";
+import destAustralia from "@/assets/dest-australia.jpg";
 import {
   Plane, Globe2, Building2, FileCheck2, Church, Gem, GraduationCap, Compass,
   ShieldCheck, BadgeDollarSign, Headphones, Sparkles, Lock, Zap, ArrowRight, MessageCircle, Check, Star, CreditCard,
@@ -19,8 +23,8 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Aura Travel & Tours | Luxury Holiday Packages South Africa" },
-      { name: "description", content: "Affordable luxury holiday packages from South Africa — Dubai, Mauritius, Zanzibar, Cape Town safaris, corporate travel, visa assistance and religious tours." },
-      { property: "og:title", content: "Aura Travel & Tours — Explore the World with Confidence" },
+      { name: "description", content: "Affordable luxury holiday packages from South Africa, Dubai, Mauritius, Zanzibar, Cape Town safaris, corporate travel, visa assistance and religious tours." },
+      { property: "og:title", content: "Aura Travel & Tours, Explore the World with Confidence" },
       { property: "og:description", content: "Tailored local & international travel packages from Johannesburg." },
       { property: "og:url", content: "/" },
     ],
@@ -46,6 +50,10 @@ const destinations = [
   { name: "Zanzibar", img: destZanzibar, blurb: "Tropical beaches & Stone Town culture.", tag: "From R10,999" },
   { name: "Cape Town", img: destCapetown, blurb: "Table Mountain, V&A Waterfront & wine.", tag: "From R4,999" },
   { name: "SA Safari", img: destSafari, blurb: "Kruger, Garden Route & Big Five.", tag: "From R6,999" },
+  { name: "United Kingdom", img: destUk, blurb: "London icons, royal heritage & countryside charm.", tag: "From R24,999" },
+  { name: "Canada", img: destCanada, blurb: "Rocky Mountains, Banff lakes & Niagara Falls.", tag: "From R28,999" },
+  { name: "United States", img: destUsa, blurb: "New York, Vegas, theme parks & national parks.", tag: "From R26,999" },
+  { name: "Australia", img: destAustralia, blurb: "Sydney Harbour, Great Barrier Reef & outback.", tag: "From R32,999" },
 ];
 
 const services = [
@@ -70,7 +78,7 @@ const packageActivities: Record<string, ExploreActivity[]> = {
     { title: "Île aux Cerfs Catamaran", desc: "Full-day island hop with snorkeling, BBQ lunch and waterfall stop.", image: destMauritius },
     { title: "Black River Gorges", desc: "Hike rainforests, viewpoints and the seven coloured earths of Chamarel.", image: destSafari },
     { title: "Dolphin Swim at Tamarin", desc: "Early-morning boat trip to swim with wild spinner dolphins.", image: destZanzibar },
-    { title: "Le Morne Beach Day", desc: "UNESCO-listed peninsula — kite surfing, snorkeling & sunset cocktails.", image: destCapetown },
+    { title: "Le Morne Beach Day", desc: "UNESCO-listed peninsula, kite surfing, snorkeling & sunset cocktails.", image: destCapetown },
   ],
   Zanzibar: [
     { title: "Stone Town Heritage Walk", desc: "Spice market, House of Wonders and Freddie Mercury's birthplace.", image: destZanzibar },
@@ -86,9 +94,33 @@ const packageActivities: Record<string, ExploreActivity[]> = {
   ],
   "SA Safari": [
     { title: "Big Five Game Drives", desc: "Dawn & dusk drives with expert rangers in private Kruger concessions.", image: destSafari },
-    { title: "Bush Walk Experience", desc: "Tracked walk with armed guide — focus on tracks, plants and birding.", image: destCapetown },
+    { title: "Bush Walk Experience", desc: "Tracked walk with armed guide, focus on tracks, plants and birding.", image: destCapetown },
     { title: "Boma Dinner Under the Stars", desc: "Open-fire feast with traditional music in the heart of the bush.", image: destZanzibar },
     { title: "Panorama Route", desc: "Blyde River Canyon, God's Window and Bourke's Luck Potholes.", image: destMauritius },
+  ],
+  "United Kingdom": [
+    { title: "London Icons Tour", desc: "Big Ben, Westminster, Buckingham Palace and a Thames river cruise.", image: destUk },
+    { title: "Tower of London & Crown Jewels", desc: "Guided tour through 1,000 years of royal history.", image: destUk },
+    { title: "Cotswolds Countryside Day", desc: "Honey-stone villages, pubs and English afternoon tea.", image: destCanada },
+    { title: "Edinburgh Add-on", desc: "Castle, Royal Mile and Highlands optional extension.", image: destSafari },
+  ],
+  Canada: [
+    { title: "Banff & Lake Louise", desc: "Turquoise glacial lakes, gondolas and Rocky Mountain hikes.", image: destCanada },
+    { title: "Niagara Falls Experience", desc: "Hornblower boat cruise into the mist of the falls.", image: destUk },
+    { title: "Vancouver City & Capilano", desc: "Stanley Park, Granville Island and the suspension bridge.", image: destSafari },
+    { title: "Whale Watching Victoria", desc: "Orcas, humpbacks and bald eagles off Vancouver Island.", image: destMauritius },
+  ],
+  "United States": [
+    { title: "New York City Pass", desc: "Statue of Liberty, Empire State, Times Square and Broadway.", image: destUsa },
+    { title: "Las Vegas & Grand Canyon", desc: "Strip nightlife plus a helicopter tour over the canyon.", image: destDubai },
+    { title: "Orlando Theme Parks", desc: "Walt Disney World and Universal Studios family days.", image: destUsa },
+    { title: "California Coast Drive", desc: "LA to San Francisco along the Pacific Coast Highway.", image: destCapetown },
+  ],
+  Australia: [
+    { title: "Sydney Harbour Cruise", desc: "Opera House, Harbour Bridge climb and Bondi Beach.", image: destAustralia },
+    { title: "Great Barrier Reef", desc: "Snorkel or dive the world's largest coral reef from Cairns.", image: destMauritius },
+    { title: "Uluru Sunset Experience", desc: "Sacred red monolith with Sounds of Silence dinner.", image: destSafari },
+    { title: "Melbourne & Great Ocean Road", desc: "Coffee culture, laneways and the Twelve Apostles drive.", image: destAustralia },
   ],
 };
 
@@ -98,6 +130,10 @@ const packages = [
   { name: "Zanzibar", price: "R10,999", img: destZanzibar, includes: ["Return flights", "5 nights beach resort", "Spice tour", "Snorkeling trip"] },
   { name: "Cape Town", price: "R4,999", img: destCapetown, includes: ["Domestic flights", "3 nights hotel", "Table Mountain", "Winelands tour"] },
   { name: "SA Safari", price: "R6,999", img: destSafari, includes: ["Lodge stay 3 nights", "Game drives", "All meals", "Park fees"] },
+  { name: "United Kingdom", price: "R24,999", img: destUk, includes: ["Return flights", "6 nights London 4★", "Hop-on city tour", "Tower of London entry"] },
+  { name: "Canada", price: "R28,999", img: destCanada, includes: ["Return flights", "7 nights Banff & Vancouver", "Lake Louise tour", "Niagara day trip"] },
+  { name: "United States", price: "R26,999", img: destUsa, includes: ["Return flights", "6 nights NYC 4★", "City sightseeing pass", "Statue of Liberty ferry"] },
+  { name: "Australia", price: "R32,999", img: destAustralia, includes: ["Return flights", "7 nights Sydney & Cairns", "Harbour cruise", "Great Barrier Reef day"] },
 ];
 
 const whyUs = [
@@ -151,7 +187,7 @@ function Home() {
               <span className="text-xs uppercase tracking-[0.3em] text-[var(--gold)]">Featured Destinations</span>
               <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold">Where will Aura take you?</h2>
             </div>
-            <p className="max-w-md text-muted-foreground">Hand-picked escapes loved by South African travellers — from beach hideaways to iconic city breaks.</p>
+            <p className="max-w-md text-muted-foreground">Hand-picked escapes loved by South African travellers, from beach hideaways to iconic city breaks.</p>
           </div>
           <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {destinations.map((d, i) => (
@@ -181,7 +217,7 @@ function Home() {
             <div>
               <span className="text-xs uppercase tracking-[0.3em] text-[var(--gold)]">Popular Packages</span>
               <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold">Ready-to-book journeys</h2>
-              <p className="mt-3 text-sm text-muted-foreground">Secure your spot with a 10% deposit via PayFast — South Africa's trusted payment gateway.</p>
+              <p className="mt-3 text-sm text-muted-foreground">Secure your spot with a 10% deposit via PayFast, South Africa's trusted payment gateway.</p>
             </div>
             <Link to="/contact" className="text-sm font-semibold text-[var(--navy-deep)] underline underline-offset-4">Need something custom? Talk to us →</Link>
           </div>
@@ -197,7 +233,7 @@ function Home() {
                   </div>
                   <div className="flex flex-1 flex-col p-6">
                     <h3 className="font-display text-2xl font-semibold">{p.name} Package</h3>
-                    <p className="mt-1 text-sm text-muted-foreground">Per person sharing — handcrafted by our specialists.</p>
+                    <p className="mt-1 text-sm text-muted-foreground">Per person sharing, handcrafted by our specialists.</p>
                     <ul className="mt-4 space-y-2 text-sm">
                       {p.includes.map((i) => (
                         <li key={i} className="flex gap-2"><Check className="h-4 w-4 text-[var(--gold)] mt-0.5 shrink-0" />{i}</li>
@@ -238,7 +274,7 @@ function Home() {
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="text-xs uppercase tracking-[0.3em] text-[var(--gold)]">Our Services</span>
             <h2 className="mt-3 font-display text-4xl md:text-5xl font-semibold">Everything for the modern traveller</h2>
-            <p className="mt-4 text-white/70">From leisure to corporate, spiritual journey to safari — one trusted partner.</p>
+            <p className="mt-4 text-white/70">From leisure to corporate, spiritual journey to safari, one trusted partner.</p>
           </div>
           <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {services.map(({ icon: Icon, title, desc }) => (
@@ -286,7 +322,7 @@ function Home() {
         <div className="absolute inset-0 bg-[var(--navy-deep)]/80" />
         <div className="relative container-x text-center text-white">
           <h2 className="font-display text-4xl md:text-6xl font-semibold max-w-3xl mx-auto">Your next great escape starts here.</h2>
-          <p className="mt-5 max-w-xl mx-auto text-white/80">Speak to a real travel specialist today — no bots, no pressure.</p>
+          <p className="mt-5 max-w-xl mx-auto text-white/80">Speak to a real travel specialist today, no bots, no pressure.</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <EnquiryDialog trigger={
               <button className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--gold)] to-[var(--gold-soft)] px-7 py-3.5 text-sm font-semibold text-[var(--navy-deep)]">

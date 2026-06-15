@@ -12,7 +12,7 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact Aura Travel & Tours | Johannesburg Travel Agency" },
-      { name: "description", content: "Get in touch with Aura Travel & Tours in Johannesburg — phone, WhatsApp, email, contact form and office location." },
+      { name: "description", content: "Get in touch with Aura Travel & Tours in Johannesburg, phone, WhatsApp, email, contact form and office location." },
       { property: "og:title", content: "Contact Aura Travel & Tours" },
       { property: "og:url", content: "/contact" },
     ],
@@ -31,7 +31,7 @@ function Contact() {
             <div>
               <span className="text-xs uppercase tracking-[0.3em] text-[var(--gold)]">Reach us</span>
               <h2 className="mt-3 font-display text-3xl md:text-4xl font-semibold">We'd love to hear from you.</h2>
-              <p className="mt-3 text-muted-foreground">Send a message or use any channel below — we respond within 24 hours.</p>
+              <p className="mt-3 text-muted-foreground">Send a message or use any channel below, we respond within 24 hours.</p>
             </div>
             <ul className="space-y-4">
               <ContactRow icon={Phone} label="Phone" value={SITE.phone} href={SITE.phoneHref} />
@@ -52,7 +52,7 @@ function Contact() {
           </div>
 
           <form
-            onSubmit={(e) => { e.preventDefault(); toast.success("Thanks — your message is on its way."); (e.target as HTMLFormElement).reset(); }}
+            onSubmit={(e) => { e.preventDefault(); toast.success("Thanks, your message is on its way."); (e.target as HTMLFormElement).reset(); }}
             className="lg:col-span-3 rounded-3xl border border-border bg-card p-6 md:p-10 shadow-card h-fit"
           >
             <h3 className="font-display text-2xl font-semibold">Send us a message</h3>

@@ -46,7 +46,7 @@ export function SiteFooter() {
           <h4 className="font-display text-base font-semibold text-white">Travel Inspiration</h4>
           <p className="mt-4 text-sm">Subscribe for exclusive deals and curated journeys.</p>
           <form
-            onSubmit={(e) => { e.preventDefault(); if (!email) return; toast.success("Welcome aboard — check your inbox."); setEmail(""); }}
+            onSubmit={(e) => { e.preventDefault(); if (!email) return; toast.success("Welcome aboard, check your inbox."); setEmail(""); }}
             className="mt-4 flex overflow-hidden rounded-full border border-white/15 bg-white/5"
           >
             <input
