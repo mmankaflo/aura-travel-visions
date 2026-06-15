@@ -5,6 +5,10 @@ import destZanzibar from "@/assets/dest-zanzibar.jpg";
 import destCapetown from "@/assets/dest-capetown.jpg";
 import destSafari from "@/assets/dest-safari.jpg";
 import destDubai from "@/assets/dest-dubai.jpg";
+import destUk from "@/assets/dest-uk.jpg";
+import destCanada from "@/assets/dest-canada.jpg";
+import destUsa from "@/assets/dest-usa.jpg";
+import destAustralia from "@/assets/dest-australia.jpg";
 import {
   Plane, Globe2, Building2, FileCheck2, Church, Gem, GraduationCap, Compass,
   ShieldCheck, BadgeDollarSign, Headphones, Sparkles, Lock, Zap, ArrowRight, MessageCircle, Check, Star, CreditCard,
@@ -46,6 +50,10 @@ const destinations = [
   { name: "Zanzibar", img: destZanzibar, blurb: "Tropical beaches & Stone Town culture.", tag: "From R10,999" },
   { name: "Cape Town", img: destCapetown, blurb: "Table Mountain, V&A Waterfront & wine.", tag: "From R4,999" },
   { name: "SA Safari", img: destSafari, blurb: "Kruger, Garden Route & Big Five.", tag: "From R6,999" },
+  { name: "United Kingdom", img: destUk, blurb: "London icons, royal heritage & countryside charm.", tag: "From R24,999" },
+  { name: "Canada", img: destCanada, blurb: "Rocky Mountains, Banff lakes & Niagara Falls.", tag: "From R28,999" },
+  { name: "United States", img: destUsa, blurb: "New York, Vegas, theme parks & national parks.", tag: "From R26,999" },
+  { name: "Australia", img: destAustralia, blurb: "Sydney Harbour, Great Barrier Reef & outback.", tag: "From R32,999" },
 ];
 
 const services = [
