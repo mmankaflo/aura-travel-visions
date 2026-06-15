@@ -9,6 +9,43 @@ import destUk from "@/assets/dest-uk.jpg";
 import destCanada from "@/assets/dest-canada.jpg";
 import destUsa from "@/assets/dest-usa.jpg";
 import destAustralia from "@/assets/dest-australia.jpg";
+// Activity images (per-country, real landmarks)
+import actDubaiBurj from "@/assets/activities/dubai-burj.jpg";
+import actDubaiDesert from "@/assets/activities/dubai-desert.jpg";
+import actDubaiMarina from "@/assets/activities/dubai-marina.jpg";
+import actDubaiSouk from "@/assets/activities/dubai-souk.jpg";
+import actMuIle from "@/assets/activities/mauritius-ileauxcerfs.jpg";
+import actMuBlackRiver from "@/assets/activities/mauritius-blackriver.jpg";
+import actMuDolphins from "@/assets/activities/mauritius-dolphins.jpg";
+import actMuLeMorne from "@/assets/activities/mauritius-lemorne.jpg";
+import actZnStone from "@/assets/activities/zanzibar-stonetown.jpg";
+import actZnNakupenda from "@/assets/activities/zanzibar-nakupenda.jpg";
+import actZnSpice from "@/assets/activities/zanzibar-spice.jpg";
+import actZnMnemba from "@/assets/activities/zanzibar-mnemba.jpg";
+import actCtTable from "@/assets/activities/capetown-tablemtn.jpg";
+import actCtCapePoint from "@/assets/activities/capetown-capepoint.jpg";
+import actCtStellen from "@/assets/activities/capetown-stellenbosch.jpg";
+import actCtVa from "@/assets/activities/capetown-vawaterfront.jpg";
+import actSfBigFive from "@/assets/activities/safari-bigfive.jpg";
+import actSfBushwalk from "@/assets/activities/safari-bushwalk.jpg";
+import actSfBoma from "@/assets/activities/safari-boma.jpg";
+import actSfPanorama from "@/assets/activities/safari-panorama.jpg";
+import actUkLondon from "@/assets/activities/uk-london.jpg";
+import actUkTower from "@/assets/activities/uk-tower.jpg";
+import actUkCots from "@/assets/activities/uk-cotswolds.jpg";
+import actUkEdin from "@/assets/activities/uk-edinburgh.jpg";
+import actCaBanff from "@/assets/activities/canada-banff.jpg";
+import actCaNiagara from "@/assets/activities/canada-niagara.jpg";
+import actCaVan from "@/assets/activities/canada-vancouver.jpg";
+import actCaWhales from "@/assets/activities/canada-whales.jpg";
+import actUsNyc from "@/assets/activities/usa-nyc.jpg";
+import actUsVegas from "@/assets/activities/usa-vegas.jpg";
+import actUsOrlando from "@/assets/activities/usa-orlando.jpg";
+import actUsCali from "@/assets/activities/usa-california.jpg";
+import actAuSydney from "@/assets/activities/aus-sydney.jpg";
+import actAuReef from "@/assets/activities/aus-reef.jpg";
+import actAuUluru from "@/assets/activities/aus-uluru.jpg";
+import actAuMelb from "@/assets/activities/aus-melbourne.jpg";
 import {
   Plane, Globe2, Building2, FileCheck2, Church, Gem, GraduationCap, Compass,
   ShieldCheck, BadgeDollarSign, Headphones, Sparkles, Lock, Zap, ArrowRight, MessageCircle, Check, Star, CreditCard,
