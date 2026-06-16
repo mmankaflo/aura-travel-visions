@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
-import { EnquiryDialog } from "@/components/site/EnquiryDialog";
+import { CorporateEnquiryDialog } from "@/components/site/CorporateEnquiryDialog";
 import corporate from "@/assets/corporate.jpg";
 import { Plane, Hotel, ClipboardList, Users2, TrendingDown, Check } from "lucide-react";
 
@@ -40,7 +40,7 @@ function Corporate() {
                 <li key={i} className="flex gap-3"><Check className="h-5 w-5 text-[var(--gold)] mt-0.5 shrink-0" /><span>{i}</span></li>
               ))}
             </ul>
-            <EnquiryDialog title="Request a Corporate Proposal" trigger={
+            <CorporateEnquiryDialog trigger={
               <button className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--gold)] to-[var(--gold-soft)] px-7 py-3.5 text-sm font-semibold text-[var(--navy-deep)]">Request a Corporate Proposal</button>
             } />
           </div>
