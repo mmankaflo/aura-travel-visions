@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
-import { EnquiryDialog } from "@/components/site/EnquiryDialog";
+import { ReligiousEnquiryDialog } from "@/components/site/ReligiousEnquiryDialog";
 import religious from "@/assets/religious.jpg";
 import { Church, Users, MapPin, Check } from "lucide-react";
 
@@ -48,7 +48,7 @@ function Religious() {
                   <li key={i} className="flex gap-3"><Check className="h-5 w-5 text-[var(--gold)] mt-0.5 shrink-0" /><span>{i}</span></li>
                 ))}
               </ul>
-              <EnquiryDialog title="Plan a Group Spiritual Journey" trigger={
+              <ReligiousEnquiryDialog trigger={
                 <button className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--gold)] to-[var(--gold-soft)] px-7 py-3.5 text-sm font-semibold text-[var(--navy-deep)]">Plan a Group Spiritual Journey</button>
               } />
             </div>
