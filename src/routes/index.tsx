@@ -9,6 +9,7 @@ import destUk from "@/assets/dest-uk.jpg";
 import destCanada from "@/assets/dest-canada.jpg";
 import destUsa from "@/assets/dest-usa.jpg";
 import destAustralia from "@/assets/dest-australia.jpg";
+import destMozambique from "@/assets/dest-mozambique.jpg";
 // Activity images (per-country, real landmarks)
 import actDubaiBurj from "@/assets/activities/dubai-burj.jpg";
 import actDubaiDesert from "@/assets/activities/dubai-desert.jpg";
@@ -46,6 +47,10 @@ import actAuSydney from "@/assets/activities/aus-sydney.jpg";
 import actAuReef from "@/assets/activities/aus-reef.jpg";
 import actAuUluru from "@/assets/activities/aus-uluru.jpg";
 import actAuMelb from "@/assets/activities/aus-melbourne.jpg";
+import actMzBazaruto from "@/assets/activities/moz-bazaruto.jpg";
+import actMzTofo from "@/assets/activities/moz-tofo.jpg";
+import actMzDiving from "@/assets/activities/moz-diving.jpg";
+import actMzIlha from "@/assets/activities/moz-ilha.jpg";
 import {
   Plane, Globe2, Building2, FileCheck2, Church, Gem, GraduationCap, Compass,
   ShieldCheck, BadgeDollarSign, Headphones, Sparkles, Lock, Zap, ArrowRight, MessageCircle, Check, Star, CreditCard,
@@ -91,6 +96,7 @@ const destinations = [
   { name: "Canada", img: destCanada, blurb: "Rocky Mountains, Banff lakes & Niagara Falls.", tag: "From R28,999" },
   { name: "United States", img: destUsa, blurb: "New York, Vegas, theme parks & national parks.", tag: "From R26,999" },
   { name: "Australia", img: destAustralia, blurb: "Sydney Harbour, Great Barrier Reef & outback.", tag: "From R32,999" },
+  { name: "Mozambique", img: destMozambique, blurb: "Bazaruto sand dunes, dhow sails & turquoise reefs.", tag: "From R8,999" },
 ];
 
 const services = [
@@ -159,6 +165,12 @@ const packageActivities: Record<string, ExploreActivity[]> = {
     { title: "Uluru Sunset Experience", desc: "Sacred red monolith with Sounds of Silence dinner.", image: actAuUluru },
     { title: "Melbourne & Great Ocean Road", desc: "Coffee culture, laneways and the Twelve Apostles drive.", image: actAuMelb },
   ],
+  Mozambique: [
+    { title: "Bazaruto Archipelago", desc: "Aerial dune flights, sandbank picnics and snorkelling at Two Mile Reef.", image: actMzBazaruto },
+    { title: "Tofo Beach Days", desc: "Golden sand, ocean safaris and laid-back beach bars.", image: actMzTofo },
+    { title: "Whale Shark & Reef Diving", desc: "Dive with whale sharks, manta rays and turtles off Praia do Tofo.", image: actMzDiving },
+    { title: "Ilha de Mozambique", desc: "UNESCO Stone Town heritage walk, fortresses and Swahili-Portuguese culture.", image: actMzIlha },
+  ],
 };
 
 const packages = [
@@ -171,6 +183,7 @@ const packages = [
   { name: "Canada", price: "R28,999", img: destCanada, includes: ["Return flights", "7 nights Banff & Vancouver", "Lake Louise tour", "Niagara day trip"] },
   { name: "United States", price: "R26,999", img: destUsa, includes: ["Return flights", "6 nights NYC 4★", "City sightseeing pass", "Statue of Liberty ferry"] },
   { name: "Australia", price: "R32,999", img: destAustralia, includes: ["Return flights", "7 nights Sydney & Cairns", "Harbour cruise", "Great Barrier Reef day"] },
+  { name: "Mozambique", price: "R8,999", img: destMozambique, includes: ["Return flights to Vilanculos", "5 nights beach lodge", "Bazaruto dhow safari", "Snorkelling & transfers"] },
 ];
 
 const whyUs = [
