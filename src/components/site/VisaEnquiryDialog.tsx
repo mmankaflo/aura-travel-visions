@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { CalendarIcon, Send, X } from "lucide-react";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
-import { toast } from "sonner";
+import { sendEnquiryEmail } from "@/lib/sendEnquiry";
 import { useState, type FormEvent, type ReactNode } from "react";
 
 const VISA_TYPES = [
@@ -40,8 +40,21 @@ export function VisaEnquiryDialog({ trigger }: { trigger: ReactNode }) {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    toast.success("Visa application started, a visa specialist will contact you within 24 hours.");
-    (e.target as HTMLFormElement).reset();
+    const form = e.target as HTMLFormElement;
+    const fd = new FormData(form);
+    const data: Record<string, unknown> = Object.fromEntries(fd.entries());
+    data.visa_type = visaType;
+    data.purpose = purpose;
+    data.passport_nationality = passport;
+    data.travel_date = travelDate ? format(travelDate, "PPP") : "";
+    data.contact_method = contactMethod;
+    data.previously_held_visa = previousVisa ? "Yes" : "No";
+    data.travel_insurance_quote = insurance ? "Yes" : "No";
+    sendEnquiryEmail({
+      subject: `Visa Application, ${visaType || "General"} — ${data.first_name ?? ""} ${data.surname ?? ""}`.trim(),
+      data,
+    });
+    form.reset();
     reset();
     setOpen(false);
   };
