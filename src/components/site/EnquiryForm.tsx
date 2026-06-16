@@ -58,7 +58,7 @@ export function EnquiryForm({
     setJoinWhatsApp(false);
     setSubscribeNewsletter(false);
   };
-  void toast;
+  
 
   return (
     <form onSubmit={handleSubmit} className="grid gap-7">
