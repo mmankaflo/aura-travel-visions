@@ -10,7 +10,6 @@ import { Button } from "@/components/ui/button";
 import { CalendarIcon, Send, X } from "lucide-react";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
-import { toast } from "sonner";
 import { sendEnquiryEmail } from "@/lib/sendEnquiry";
 
 const DEPART_OPTIONS = [
