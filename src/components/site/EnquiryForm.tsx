@@ -11,6 +11,7 @@ import { CalendarIcon, Send, X } from "lucide-react";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import { sendEnquiryEmail } from "@/lib/sendEnquiry";
 
 const DEPART_OPTIONS = [
   "Johannesburg (OR Tambo)", "Cape Town (CPT)", "Durban (King Shaka)",
@@ -41,13 +42,24 @@ export function EnquiryForm({
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    toast.success("Enquiry submitted, our specialists will be in touch within 24 hours.");
-    (e.target as HTMLFormElement).reset();
+    const form = e.target as HTMLFormElement;
+    const fd = new FormData(form);
+    const data: Record<string, unknown> = Object.fromEntries(fd.entries());
+    data.contact_method = contactMethod;
+    data.travel_date = date ? format(date, "PPP") : "";
+    data.join_whatsapp_group = joinWhatsApp ? "Yes" : "No";
+    data.subscribe_newsletter = subscribeNewsletter ? "Yes" : "No";
+    sendEnquiryEmail({
+      subject: `Travel Enquiry, ${data.travelling_to ?? "General"} — ${data.first_name ?? ""} ${data.surname ?? ""}`.trim(),
+      data,
+    });
+    form.reset();
     setDate(undefined);
     setContactMethod("");
     setJoinWhatsApp(false);
     setSubscribeNewsletter(false);
   };
+  void toast;
 
   return (
     <form onSubmit={handleSubmit} className="grid gap-7">
