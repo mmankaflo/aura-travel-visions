@@ -16,12 +16,17 @@ const SERVICES = [
 const FREQUENCY = ["Ad-hoc", "Weekly", "Monthly", "Quarterly", "Annual programme"];
 const COMPANY_SIZE = ["1–10", "11–50", "51–200", "201–500", "500+"];
 const TRAVELLER_CLASS = ["Economy", "Premium Economy", "Business", "First", "Mixed"];
+const DEPARTURES = [
+  "Johannesburg (OR Tambo)", "Cape Town", "Durban (King Shaka)", "Port Elizabeth",
+  "East London", "Bloemfontein", "George", "Lanseria", "Other",
+];
 
 export function CorporateEnquiryDialog({ trigger }: { trigger: ReactNode }) {
   const [open, setOpen] = useState(false);
   const [size, setSize] = useState("");
   const [freq, setFreq] = useState("");
   const [travelClass, setTravelClass] = useState("");
+  const [departure, setDeparture] = useState("");
   const [services, setServices] = useState<string[]>([]);
 
   const toggleService = (s: string) =>
@@ -35,13 +40,14 @@ export function CorporateEnquiryDialog({ trigger }: { trigger: ReactNode }) {
     data.company_size = size;
     data.travel_frequency = freq;
     data.preferred_class = travelClass;
+    data.departing_from = departure;
     data.services_required = services.join(", ");
     sendEnquiryEmail({
       subject: `Corporate Travel Proposal Request, ${data.company_name ?? ""}`,
       data,
     });
     form.reset();
-    setSize(""); setFreq(""); setTravelClass(""); setServices([]);
+    setSize(""); setFreq(""); setTravelClass(""); setDeparture(""); setServices([]);
     setOpen(false);
   };
 
@@ -107,6 +113,12 @@ export function CorporateEnquiryDialog({ trigger }: { trigger: ReactNode }) {
               </F>
               <F id="cf-loyalty" label="Existing loyalty / preferred suppliers">
                 <Input id="cf-loyalty" name="loyalty" placeholder="e.g. Voyager, Marriott Bonvoy" />
+              </F>
+              <F id="cf-depart" label="Primary departure airport">
+                <Select value={departure} onValueChange={setDeparture} required>
+                  <SelectTrigger id="cf-depart"><SelectValue placeholder="Select departure city" /></SelectTrigger>
+                  <SelectContent>{DEPARTURES.map((o) => <SelectItem key={o} value={o}>{o}</SelectItem>)}</SelectContent>
+                </Select>
               </F>
             </div>
 

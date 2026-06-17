@@ -20,6 +20,10 @@ const DESTINATIONS = [
 ];
 const DURATION = ["5–7 days", "8–10 days", "11–14 days", "15+ days"];
 const ACCOM = ["3★ Standard", "4★ Comfort", "5★ Premium"];
+const DEPARTURES = [
+  "Johannesburg (OR Tambo)", "Cape Town", "Durban (King Shaka)", "Port Elizabeth",
+  "East London", "Bloemfontein", "George", "Lanseria", "Other",
+];
 
 export function ReligiousEnquiryDialog({ trigger }: { trigger: ReactNode }) {
   const [open, setOpen] = useState(false);
@@ -28,6 +32,7 @@ export function ReligiousEnquiryDialog({ trigger }: { trigger: ReactNode }) {
   const [dest, setDest] = useState("");
   const [duration, setDuration] = useState("");
   const [accom, setAccom] = useState("");
+  const [departure, setDeparture] = useState("");
   const [needsVisa, setNeedsVisa] = useState(false);
   const [dietary, setDietary] = useState(false);
 
@@ -43,12 +48,14 @@ export function ReligiousEnquiryDialog({ trigger }: { trigger: ReactNode }) {
     data.preferred_travel_date = date ? format(date, "PPP") : "";
     data.visa_assistance_needed = needsVisa ? "Yes" : "No";
     data.special_dietary_needs = dietary ? "Yes" : "No";
+    data.departing_from = departure;
     sendEnquiryEmail({
-      subject: `Spiritual Journey Enquiry, ${dest || "General"} — ${data.first_name ?? ""} ${data.surname ?? ""}`.trim(),
+      subject: `Spiritual Journey Enquiry, ${dest || "General"} - ${data.first_name ?? ""} ${data.surname ?? ""}`.trim(),
       data,
     });
     form.reset();
     setDate(undefined); setFaith(""); setDest(""); setDuration(""); setAccom("");
+    setDeparture("");
     setNeedsVisa(false); setDietary(false);
     setOpen(false);
   };
@@ -123,8 +130,11 @@ export function ReligiousEnquiryDialog({ trigger }: { trigger: ReactNode }) {
               <F id="rf-budget" label="Estimated budget per traveller (ZAR)">
                 <Input id="rf-budget" name="budget_per_person" placeholder="e.g. R45,000" required />
               </F>
-              <F id="rf-depart" label="Departing from (city)">
-                <Input id="rf-depart" name="departing_from" placeholder="e.g. Johannesburg" required />
+              <F id="rf-depart" label="Departing from">
+                <Select value={departure} onValueChange={setDeparture} required>
+                  <SelectTrigger id="rf-depart"><SelectValue placeholder="Select departure city" /></SelectTrigger>
+                  <SelectContent>{DEPARTURES.map((o) => <SelectItem key={o} value={o}>{o}</SelectItem>)}</SelectContent>
+                </Select>
               </F>
             </div>
 
