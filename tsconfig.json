@@ -21,8 +21,8 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
     "paths": {
-      "@/*": ["./src/*"]
-       "#tanstack-router-entry": ["./src/router-entry.tsx"]
+      "@/*": ["./src/*"],
+      "#tanstack-router-entry": ["./src/router-entry.tsx"]
     }
   }
 }
