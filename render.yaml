@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: aura-travel-visions
+    name: auratravelandtours
     runtime: node
     buildCommand: npm install && npm run build
     startCommand: node .output/server/index.mjs
