@@ -1,0 +1,58 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+      - run: npm ci
+      - run: npm run build:pages
+      - name: Prepare static files
+        run: |
+          mkdir -p gh-pages
+          cp -r dist/client/* gh-pages/
+          CSS_FILE=$(ls gh-pages/assets/styles-*.css | head -n 1 | sed 's|^gh-pages/||')
+          ENTRY_JS=$(ls gh-pages/assets/index-*.js | head -n 1 | sed 's|^gh-pages/||')
+          cat > gh-pages/index.html << EOF
+          <!DOCTYPE html>
+          <html lang="en">
+            <head>
+              <meta charset="UTF-8" />
+              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+              <title>Aura Travel & Tours</title>
+              <link rel="stylesheet" href="./$CSS_FILE" />
+            </head>
+            <body>
+              <div id="root"></div>
+              <script type="module" src="./$ENTRY_JS"></script>
+            </body>
+          </html>
+          EOF
+          cp gh-pages/index.html gh-pages/404.html
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: gh-pages
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/deploy-pages@v4
