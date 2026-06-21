@@ -1,8 +1,13 @@
-import { useState, type FormEvent } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
@@ -10,17 +15,34 @@ import { Button } from "@/components/ui/button";
 import { CalendarIcon, Send, X } from "lucide-react";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
-import { sendEnquiryEmail } from "@/lib/sendEnquiry";
+import { useState } from "react";
+import { submitEnquiryForm } from "@/lib/enquiryForm";
 
 const DEPART_OPTIONS = [
-  "Johannesburg (OR Tambo)", "Cape Town (CPT)", "Durban (King Shaka)",
-  "Pretoria", "Port Elizabeth (Gqeberha)", "East London", "Bloemfontein", "Other",
+  "Johannesburg (OR Tambo)",
+  "Cape Town (CPT)",
+  "Durban (King Shaka)",
+  "Pretoria",
+  "Port Elizabeth (Gqeberha)",
+  "East London",
+  "Bloemfontein",
+  "Other",
 ];
 
 const DESTINATION_OPTIONS = [
-  "Dubai", "Mauritius", "Zanzibar", "Cape Town", "South African Safari",
-  "Bali", "Thailand", "Maldives", "Turkey", "Europe",
-  "Holy Land (Israel)", "Mecca / Umrah", "Other",
+  "Dubai",
+  "Mauritius",
+  "Zanzibar",
+  "Cape Town",
+  "South African Safari",
+  "Bali",
+  "Thailand",
+  "Maldives",
+  "Turkey",
+  "Europe",
+  "Holy Land (Israel)",
+  "Mecca / Umrah",
+  "Other",
 ];
 
 const CONTACT_OPTIONS = ["Email", "Phone Call", "WhatsApp", "SMS"];
@@ -36,42 +58,46 @@ export function EnquiryForm({
 }) {
   const [date, setDate] = useState<Date | undefined>();
   const [contactMethod, setContactMethod] = useState<string>("");
-  const [joinWhatsApp, setJoinWhatsApp] = useState(false);
-  const [subscribeNewsletter, setSubscribeNewsletter] = useState(false);
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    const form = e.target as HTMLFormElement;
-    const fd = new FormData(form);
-    const data: Record<string, unknown> = Object.fromEntries(fd.entries());
-    data.contact_method = contactMethod;
-    data.travel_date = date ? format(date, "PPP") : "";
-    data.join_whatsapp_group = joinWhatsApp ? "Yes" : "No";
-    data.subscribe_newsletter = subscribeNewsletter ? "Yes" : "No";
-    sendEnquiryEmail({
-      subject: `Travel Enquiry, ${data.travelling_to ?? "General"} — ${data.first_name ?? ""} ${data.surname ?? ""}`.trim(),
-      data,
-    });
-    form.reset();
-    setDate(undefined);
-    setContactMethod("");
-    setJoinWhatsApp(false);
-    setSubscribeNewsletter(false);
-  };
-  
+  const [successMessage, setSuccessMessage] = useState("");
 
   return (
-    <form onSubmit={handleSubmit} className="grid gap-7">
+    <form
+      action="https://formsubmit.co/info@AuraTravelandTours.onmicrosoft.com"
+      method="POST"
+      className="grid gap-7"
+      onSubmit={(event) => {
+        submitEnquiryForm(
+          event,
+          "Travel Enquiry from Aura Travel Website",
+          () => {
+            setDate(undefined);
+            setContactMethod("");
+          },
+          setSuccessMessage,
+        );
+      }}
+    >
+      <input type="hidden" name="_next" value="/" />
+      <input type="hidden" name="_subject" value="Travel Enquiry from Aura Travel Website" />
+
       {/* Personal Information */}
       <section className="grid gap-4">
         <h3 className="font-display text-xl font-semibold text-[var(--navy-deep)] border-b border-border pb-2">
           Personal Information
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <Field id="ef-first" label="First name"><Input id="ef-first" name="first_name" required maxLength={60} /></Field>
-          <Field id="ef-surname" label="Surname"><Input id="ef-surname" name="surname" required maxLength={60} /></Field>
-          <Field id="ef-email" label="Email address"><Input id="ef-email" name="email" type="email" required maxLength={120} /></Field>
-          <Field id="ef-mobile" label="Mobile number"><Input id="ef-mobile" name="mobile" type="tel" required maxLength={20} /></Field>
+          <Field id="ef-first" label="First name">
+            <Input id="ef-first" name="first_name" required maxLength={60} />
+          </Field>
+          <Field id="ef-surname" label="Surname">
+            <Input id="ef-surname" name="surname" required maxLength={60} />
+          </Field>
+          <Field id="ef-email" label="Email address">
+            <Input id="ef-email" name="email" type="email" required maxLength={120} />
+          </Field>
+          <Field id="ef-mobile" label="Mobile number">
+            <Input id="ef-mobile" name="mobile" type="tel" required maxLength={20} />
+          </Field>
         </div>
       </section>
 
@@ -82,7 +108,15 @@ export function EnquiryForm({
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <Field id="ef-adults" label="Number of adults">
-            <Input id="ef-adults" name="adults" type="number" min={1} max={30} defaultValue={2} required />
+            <Input
+              id="ef-adults"
+              name="adults"
+              type="number"
+              min={1}
+              max={30}
+              defaultValue={2}
+              required
+            />
           </Field>
           <Field id="ef-kids" label="Number of kids">
             <Input id="ef-kids" name="kids" type="number" min={0} max={20} defaultValue={0} />
@@ -99,7 +133,10 @@ export function EnquiryForm({
                 <Button
                   type="button"
                   variant="outline"
-                  className={cn("w-full justify-start text-left font-normal", !date && "text-muted-foreground")}
+                  className={cn(
+                    "w-full justify-start text-left font-normal",
+                    !date && "text-muted-foreground",
+                  )}
                 >
                   <CalendarIcon className="mr-2 h-4 w-4" />
                   {date ? format(date, "PPP") : <span>Pick a date</span>}
@@ -116,7 +153,7 @@ export function EnquiryForm({
                 />
               </PopoverContent>
             </Popover>
-            <input type="hidden" name="travel_date" value={date ? date.toISOString().slice(0, 10) : ""} />
+            <input type="hidden" name="travel_date" value={date ? format(date, "PPP") : ""} />
           </Field>
 
           <Field id="ef-duration" label="Duration of the trip">
@@ -127,18 +164,30 @@ export function EnquiryForm({
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Field id="ef-from" label="Where are you departing from?">
             <Select name="departing_from" required>
-              <SelectTrigger id="ef-from"><SelectValue placeholder="Select departure city" /></SelectTrigger>
+              <SelectTrigger id="ef-from">
+                <SelectValue placeholder="Select departure city" />
+              </SelectTrigger>
               <SelectContent>
-                {DEPART_OPTIONS.map((o) => <SelectItem key={o} value={o}>{o}</SelectItem>)}
+                {DEPART_OPTIONS.map((o) => (
+                  <SelectItem key={o} value={o}>
+                    {o}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </Field>
 
           <Field id="ef-to" label="Where are you travelling to?">
             <Select name="travelling_to" defaultValue={defaultDestination} required>
-              <SelectTrigger id="ef-to"><SelectValue placeholder="Select destination" /></SelectTrigger>
+              <SelectTrigger id="ef-to">
+                <SelectValue placeholder="Select destination" />
+              </SelectTrigger>
               <SelectContent>
-                {DESTINATION_OPTIONS.map((o) => <SelectItem key={o} value={o}>{o}</SelectItem>)}
+                {DESTINATION_OPTIONS.map((o) => (
+                  <SelectItem key={o} value={o}>
+                    {o}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </Field>
@@ -149,14 +198,31 @@ export function EnquiryForm({
         </Field>
 
         <Field id="ef-notes" label="Anything you'd like to add?">
-          <Textarea id="ef-notes" name="notes" rows={4} maxLength={1000} placeholder="Special occasions, dietary needs, accessibility, preferred airlines…" />
+          <Textarea
+            id="ef-notes"
+            name="notes"
+            rows={4}
+            maxLength={1000}
+            placeholder="Special occasions, dietary needs, accessibility, preferred airlines…"
+          />
         </Field>
 
         <Field id="ef-contact-method" label="How should we contact you?">
-          <Select value={contactMethod} onValueChange={setContactMethod} name="contact_method" required>
-            <SelectTrigger id="ef-contact-method"><SelectValue placeholder="Choose preferred contact method" /></SelectTrigger>
+          <Select
+            value={contactMethod}
+            onValueChange={setContactMethod}
+            name="contact_method"
+            required
+          >
+            <SelectTrigger id="ef-contact-method">
+              <SelectValue placeholder="Choose preferred contact method" />
+            </SelectTrigger>
             <SelectContent>
-              {CONTACT_OPTIONS.map((o) => <SelectItem key={o} value={o}>{o}</SelectItem>)}
+              {CONTACT_OPTIONS.map((o) => (
+                <SelectItem key={o} value={o}>
+                  {o}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
         </Field>
@@ -164,32 +230,37 @@ export function EnquiryForm({
 
       {/* Opt-ins */}
       <section className="grid gap-3 rounded-xl border border-border bg-secondary/40 p-4">
-        <p className="text-xs uppercase tracking-wider text-muted-foreground">Optional, stay in the loop</p>
+        <p className="text-xs uppercase tracking-wider text-muted-foreground">
+          Optional, stay in the loop
+        </p>
         <label className="flex items-start gap-3 cursor-pointer">
-          <Checkbox
-            id="ef-wa"
-            checked={joinWhatsApp}
-            onCheckedChange={(c) => setJoinWhatsApp(c === true)}
-            className="mt-0.5"
-          />
+          <Checkbox id="ef-wa" name="join_whatsapp_group" value="Yes" className="mt-0.5" />
           <span className="text-sm">
             <span className="font-medium">Join our WhatsApp promotional group</span>
-            <span className="block text-muted-foreground text-xs">Flash deals & last-minute escapes (optional).</span>
+            <span className="block text-muted-foreground text-xs">
+              Flash deals & last-minute escapes (optional).
+            </span>
           </span>
         </label>
         <label className="flex items-start gap-3 cursor-pointer">
-          <Checkbox
-            id="ef-news"
-            checked={subscribeNewsletter}
-            onCheckedChange={(c) => setSubscribeNewsletter(c === true)}
-            className="mt-0.5"
-          />
+          <Checkbox id="ef-news" name="subscribe_newsletter" value="Yes" className="mt-0.5" />
           <span className="text-sm">
             <span className="font-medium">Subscribe to our email newsletter</span>
-            <span className="block text-muted-foreground text-xs">Curated journeys & monthly inspiration (optional).</span>
+            <span className="block text-muted-foreground text-xs">
+              Curated journeys & monthly inspiration (optional).
+            </span>
           </span>
         </label>
       </section>
+
+      {successMessage && (
+        <p
+          role="status"
+          className="rounded-xl bg-green-500/10 px-4 py-3 text-sm font-medium text-green-700"
+        >
+          {successMessage}
+        </p>
+      )}
 
       <div className="flex flex-col-reverse sm:flex-row gap-3 pt-2">
         {onCancel && (

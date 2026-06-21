@@ -21,6 +21,8 @@ package-lock.json
 # Wrangler / Cloudflare
 .wrangler/
 .dev.vars
+.env
+.env.*
 
 # Editor directories and files
 .vscode/*

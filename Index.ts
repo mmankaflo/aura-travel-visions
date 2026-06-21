@@ -6,4 +6,3 @@ Bun.serve({
   port,
   fetch: server.fetch,
 });
-

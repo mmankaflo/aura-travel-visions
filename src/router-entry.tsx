@@ -1,8 +1,10 @@
+import { QueryClient } from "@tanstack/react-query";
 import { Router, RouterProvider } from "@tanstack/react-router";
-import { routeTree } from "./routeTree.gen"; // adjust if your routes are in a different file
+import { routeTree } from "./routeTree.gen";
 
-const router = new Router({ routeTree });
+const queryClient = new QueryClient();
+const router = new Router({ routeTree, context: { queryClient } });
 
 export default function App() {
-  return <RouterProvider router={router} />;
+  return <RouterProvider router={router} context={{ queryClient }} />;
 }

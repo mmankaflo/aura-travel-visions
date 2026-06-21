@@ -8,7 +8,11 @@ export const Route = createFileRoute("/plan-trip")({
   head: () => ({
     meta: [
       { title: "Plan Your Trip | Aura Travel & Tours" },
-      { name: "description", content: "Tell us about your dream holiday, adults, kids, dates, departure city, destination, budget and more. We'll craft a tailored quote within 24 hours." },
+      {
+        name: "description",
+        content:
+          "Tell us about your dream holiday, adults, kids, dates, departure city, destination, budget and more. We'll craft a tailored quote within 24 hours.",
+      },
       { property: "og:title", content: "Plan Your Trip, Aura Travel & Tours" },
       { property: "og:url", content: "/plan-trip" },
     ],
@@ -44,7 +48,9 @@ function PlanTrip() {
             >
               <ArrowLeft className="h-4 w-4" /> Back
             </button>
-            <Link to="/" className="text-sm text-muted-foreground hover:text-[var(--gold)]">Home</Link>
+            <Link to="/" className="text-sm text-muted-foreground hover:text-[var(--gold)]">
+              Home
+            </Link>
           </div>
 
           <div className="rounded-3xl border border-border bg-card p-6 md:p-10 shadow-card">

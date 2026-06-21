@@ -64,22 +64,36 @@
   --input: oklch(0.92 0.01 80);
   --ring: var(--gold);
 
-  --gradient-hero: linear-gradient(135deg, oklch(0.14 0.05 260 / 0.85), oklch(0.14 0.05 260 / 0.35));
+  --gradient-hero: linear-gradient(
+    135deg,
+    oklch(0.14 0.05 260 / 0.85),
+    oklch(0.14 0.05 260 / 0.35)
+  );
   --gradient-gold: linear-gradient(135deg, oklch(0.82 0.14 85), oklch(0.7 0.14 70));
   --shadow-luxe: 0 30px 60px -20px oklch(0.14 0.05 260 / 0.4);
   --shadow-card: 0 10px 30px -10px oklch(0.14 0.05 260 / 0.15);
 }
 
 @layer base {
-  * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; }
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.01em; }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
 }
 
 @utility container-x {
@@ -94,15 +108,25 @@
 }
 
 @keyframes float-up {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 @utility animate-float-up {
   animation: float-up 0.8s ease-out both;
 }
 @keyframes ken-burns {
-  from { transform: scale(1.05); }
-  to { transform: scale(1.15); }
+  from {
+    transform: scale(1.05);
+  }
+  to {
+    transform: scale(1.15);
+  }
 }
 @utility animate-ken-burns {
   animation: ken-burns 12s ease-in-out infinite alternate;

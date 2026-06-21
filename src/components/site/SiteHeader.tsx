@@ -19,7 +19,7 @@ export function SiteHeader() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled ? "bg-background/90 backdrop-blur-lg shadow-sm" : "bg-transparent"
+        scrolled ? "bg-background/90 backdrop-blur-lg shadow-sm" : "bg-transparent",
       )}
     >
       <div className="container-x flex h-16 items-center justify-between gap-4 md:h-20">
@@ -31,10 +31,12 @@ export function SiteHeader() {
             height={40}
             className="h-9 w-9 md:h-10 md:w-10 shrink-0 object-contain drop-shadow"
           />
-          <span className={cn(
-            "font-display text-sm sm:text-base md:text-lg font-semibold tracking-tight truncate leading-tight",
-            scrolled ? "text-foreground" : "text-white drop-shadow"
-          )}>
+          <span
+            className={cn(
+              "font-display text-sm sm:text-base md:text-lg font-semibold tracking-tight truncate leading-tight",
+              scrolled ? "text-foreground" : "text-white drop-shadow",
+            )}
+          >
             Aura Travel <span className="text-gradient-gold">&amp; Tours</span>
           </span>
         </Link>
@@ -47,7 +49,7 @@ export function SiteHeader() {
               activeOptions={{ exact: item.to === "/" }}
               className={cn(
                 "text-sm font-medium transition-colors hover:text-[var(--gold)]",
-                scrolled ? "text-foreground/80" : "text-white/90"
+                scrolled ? "text-foreground/80" : "text-white/90",
               )}
               activeProps={{ className: "text-[var(--gold)]" }}
             >
@@ -67,7 +69,7 @@ export function SiteHeader() {
             onClick={() => setOpen((o) => !o)}
             className={cn(
               "lg:hidden grid h-10 w-10 place-items-center rounded-full border",
-              scrolled ? "border-border text-foreground" : "border-white/30 text-white"
+              scrolled ? "border-border text-foreground" : "border-white/30 text-white",
             )}
             aria-label="Toggle menu"
           >
@@ -90,7 +92,10 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
-            <a href={SITE.phoneHref} className="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[var(--gold)] to-[var(--gold-soft)] px-4 py-3 text-sm font-semibold text-[var(--navy-deep)]">
+            <a
+              href={SITE.phoneHref}
+              className="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[var(--gold)] to-[var(--gold-soft)] px-4 py-3 text-sm font-semibold text-[var(--navy-deep)]"
+            >
               <Phone className="h-4 w-4" /> {SITE.phone}
             </a>
           </nav>

@@ -1,4 +1,11 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogDescription,
+} from "@/components/ui/dialog";
 import { MapPin } from "lucide-react";
 import type { ReactNode } from "react";
 
@@ -22,14 +29,26 @@ export function ExploreDialog({
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="font-display text-2xl md:text-3xl">Explore {packageName}</DialogTitle>
-          <DialogDescription>Curated places & experiences included or available on this trip.</DialogDescription>
+          <DialogTitle className="font-display text-2xl md:text-3xl">
+            Explore {packageName}
+          </DialogTitle>
+          <DialogDescription>
+            Curated places & experiences included or available on this trip.
+          </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 sm:grid-cols-2 mt-2">
           {activities.map((a) => (
-            <article key={a.title} className="overflow-hidden rounded-xl border border-border bg-card shadow-sm">
+            <article
+              key={a.title}
+              className="overflow-hidden rounded-xl border border-border bg-card shadow-sm"
+            >
               <div className="aspect-[4/3] overflow-hidden">
-                <img src={a.image} alt={a.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 hover:scale-110" />
+                <img
+                  src={a.image}
+                  alt={a.title}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
+                />
               </div>
               <div className="p-4">
                 <div className="flex items-center gap-1.5 text-xs text-[var(--gold)] font-semibold uppercase tracking-wider">
