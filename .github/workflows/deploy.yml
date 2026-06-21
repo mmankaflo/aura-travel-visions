@@ -38,15 +38,16 @@ jobs:
               <meta charset="UTF-8" />
               <meta name="viewport" content="width=device-width, initial-scale=1.0" />
               <title>Aura Travel & Tours</title>
-              <link rel="stylesheet" href="./$CSS_FILE" />
+              <link rel="stylesheet" href="$CSS_FILE" />
             </head>
             <body>
               <div id="root"></div>
-              <script type="module" src="./$ENTRY_JS"></script>
+              <script type="module" src="$ENTRY_JS"></script>
             </body>
           </html>
           EOF
           cp gh-pages/index.html gh-pages/404.html
+          touch gh-pages/.nojekyll
       - uses: actions/upload-pages-artifact@v4
         with:
           path: gh-pages
