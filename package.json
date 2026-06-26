@@ -3,14 +3,19 @@
   "private": true,
   "sideEffects": false,
   "type": "module",
+  "engines": {
+    "node": "^22.0.0"
+  },
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
     "build:pages": "vite build --config vite.pages.config.ts",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
+    "start": "node .output/server/index.mjs",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "postinstall": "node -e \"const fs=require('fs');const p='./node_modules/@tanstack/start-server-core/package.json';const pkg=JSON.parse(fs.readFileSync(p,'utf8'));pkg.imports=pkg.imports||{};pkg.imports['#tanstack-start-entry']={'default':'../start-client-core/dist/esm/fake-entries/start.js'};pkg.imports['#tanstack-router-entry']={'default':'../start-client-core/dist/esm/fake-entries/router.js'};fs.writeFileSync(p,JSON.stringify(pkg,null,2)+'\\n')\""
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
